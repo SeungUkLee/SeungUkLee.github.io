@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Seunguk&#39;s Blog">
 <meta property="og:description" content="MVC 패턴에 대해 알아보기 이전에 SoC(관심사의 분리)에 대해 우선 알아보겠습니다. 관심사의 분리(SoC) 란?관심사의 분리란 영어로 Separation of Concerns (SoC)라고 하며 각 부문이 각자의 관심사를 갖도록 컴퓨터 프로그램을 여러 부분으로 나누는 설계 원칙이라고 할 수 있습니다. 만약 할 일 목록을 출력하는 task.php 파일이">
 <meta property="og:image" content="https://seunguklee.github.io/images/image-mvc-pattern.jpg">
-<meta property="og:updated_time" content="2018-02-05T16:36:21.000Z">
+<meta property="og:updated_time" content="2018-02-07T10:14:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MVC Pattern">
 <meta name="twitter:description" content="MVC 패턴에 대해 알아보기 이전에 SoC(관심사의 분리)에 대해 우선 알아보겠습니다. 관심사의 분리(SoC) 란?관심사의 분리란 영어로 Separation of Concerns (SoC)라고 하며 각 부문이 각자의 관심사를 갖도록 컴퓨터 프로그램을 여러 부분으로 나누는 설계 원칙이라고 할 수 있습니다. 만약 할 일 목록을 출력하는 task.php 파일이">
@@ -126,7 +126,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search..">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -163,7 +163,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#관심사의-분리-SoC-란"><span class="post-toc-number">1.</span> <span class="post-toc-text">관심사의 분리(SoC) 란?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#관심사의-분리의-장점"><span class="post-toc-number">2.</span> <span class="post-toc-text">관심사의 분리의 장점</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MVC-패턴이란"><span class="post-toc-number">3.</span> <span class="post-toc-text">MVC 패턴이란?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MVC-패턴의-장점"><span class="post-toc-number">4.</span> <span class="post-toc-text">MVC 패턴의 장점</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#관심사의-분리-SoC-란"><span class="post-toc-number">1.</span> <span class="post-toc-text">관심사의 분리(SoC) 란?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#관심사의-분리의-장점"><span class="post-toc-number">2.</span> <span class="post-toc-text">관심사의 분리의 장점</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MVC-패턴이란"><span class="post-toc-number">3.</span> <span class="post-toc-text">MVC 패턴이란?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MVC-패턴의-장점"><span class="post-toc-number">4.</span> <span class="post-toc-text">MVC 패턴의 장점</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#참고-문서"><span class="post-toc-number">5.</span> <span class="post-toc-text">참고 문서</span></a></li></ol>
         </nav>
     </aside>
 
@@ -237,9 +237,11 @@
 <li>다른 부문에 대해 신경 쓸 필요가 거의 없다.</li>
 <li>유지보수와 협업이 쉬워진다.</li>
 </ol>
-<p>[참고 자료]</p>
-<p><a href="https://medium.com/@smartbosslee/%EA%B4%80%EC%8B%AC%EC%82%AC%EC%9D%98-%EB%B6%84%EB%A6%AC-separation-of-concerns-soc-8a8d09df066d" target="_blank" rel="noopener"><br>https://medium.com/@smartbosslee/%EA%B4%80%EC%8B%AC%EC%82%AC%EC%9D%98-%EB%B6%84%EB%A6%AC-separation-of-concerns-soc-8a8d09df066d<br></a></p>
-<p><a href="https://medium.com/@smartbosslee/php-%EC%98%88%EC%A0%9C%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-mvc-%ED%8C%A8%ED%84%B4-1628b47b1b04" target="_blank" rel="noopener"><br>https://medium.com/@smartbosslee/php-%EC%98%88%EC%A0%9C%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-mvc-%ED%8C%A8%ED%84%B4-1628b47b1b04<br></a></p>
+<h1 id="참고-문서"><a href="#참고-문서" class="headerlink" title="참고 문서"></a>참고 문서</h1><blockquote><ul>
+<li><a href="https://medium.com/@smartbosslee/%EA%B4%80%EC%8B%AC%EC%82%AC%EC%9D%98-%EB%B6%84%EB%A6%AC-separation-of-concerns-soc-8a8d09df066d" target="_blank" rel="noopener">관심사의 분리(Separation of Concerns, SoC)</a></li>
+<li><a href="https://medium.com/@smartbosslee/php-%EC%98%88%EC%A0%9C%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-mvc-%ED%8C%A8%ED%84%B4-1628b47b1b04" target="_blank" rel="noopener">PHP 예제로 알아보는 MVC 패턴</a></li>
+</ul>
+</blockquote>
 
         </div>
 
@@ -248,7 +250,7 @@
     <div class="content">
         
 <span class="post-time">
-    Updated：<time datetime="2018-02-05T16:36:21.000Z" itemprop="dateUpdated">2018-02-06 01:36:21</time>
+    Last updated: <time datetime="2018-02-07T10:14:48.000Z" itemprop="dateUpdated">2018-02-07 19:14:48</time>
 </span><br>
 
 
@@ -283,18 +285,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2017/11/03/Front-Controller-Pattern/" id="post-prev" class="post-nav-link">
+      <a href="/2017/11/03/php-fpm/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Front Controller Pattern</h4>
+        <h4 class="title">what is php-fpm</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/07/28/composer/" id="post-next" class="post-nav-link">
+      <a href="/2017/11/03/Front-Controller-Pattern/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">컴포저</h4>
+        <h4 class="title">Front Controller Pattern</h4>
       </a>
     </div>
   
@@ -340,7 +342,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>Blog content licensed under the Creative Commons<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja"> CC BY-SA</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">

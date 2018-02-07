@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://seunguklee.github.io/images/DevOps/Git/image-git-flow-tutorial-8.png">
 <meta property="og:image" content="https://seunguklee.github.io/images/DevOps/Git/image-git-flow-tutorial-9.png">
 <meta property="og:image" content="https://seunguklee.github.io/images/DevOps/Git/image-git-flow-tutorial-10.png">
-<meta property="og:updated_time" content="2018-02-05T16:36:21.000Z">
+<meta property="og:updated_time" content="2018-02-07T10:22:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git flow tutorial">
 <meta name="twitter:description" content="gitflow란?Vincent Driessen’s의 branching model을 적용하여 고수준으로 저장소를 관리하기 위한 Git 확장 콜렉션이라고 할 수 있습니다.Vincent의 branching model은 “feature - develop - release - hotfixes - master” 단계로 branch를 나눠서 코드를 관리하는 전략입니다.">
@@ -135,7 +135,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search..">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -172,7 +172,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gitflow란"><span class="post-toc-number">1.</span> <span class="post-toc-text">gitflow란?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gitflow-사용하기"><span class="post-toc-number">2.</span> <span class="post-toc-text">gitflow 사용하기</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gitflow란"><span class="post-toc-number">1.</span> <span class="post-toc-text">gitflow란?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gitflow-사용하기"><span class="post-toc-number">2.</span> <span class="post-toc-text">gitflow 사용하기</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#참고-문서"><span class="post-toc-number">3.</span> <span class="post-toc-text">참고 문서</span></a></li></ol>
         </nav>
     </aside>
 
@@ -241,7 +241,11 @@
 <li>릴리즈를 develop branch로 재병합(back-merge)</li>
 <li>release branch를 삭제</li>
 </ol>
-<figure class="third"><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-7.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-7.png"></a><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-8.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-8.png"></a><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-9.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-9.png"></a><br>    <figcaption style="text-align: center">그림 7,8,9. git flow release finish [이름]</figcaption><br></figure>
+<figure><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-7.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-7.png"></a><br>    <figcaption style="text-align: center">그림 7. git flow release finish [이름] </figcaption><br></figure>
+
+<figure><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-8.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-8.png"></a><br>    <figcaption style="text-align: center">그림 8. git flow release finish [이름] </figcaption><br></figure>
+
+<figure><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-9.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-9.png"></a><br>    <figcaption style="text-align: center">그림 9. git flow release finish [이름] </figcaption><br></figure>
 
 
 <p>마지막으로 모든 release 작업이 끝났으면 pull 명령으로 원격 저장소에 코드를 저장할 수 있습니다.</p>
@@ -249,8 +253,10 @@
 <figure><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-10.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-10.png"></a><br>    <figcaption style="text-align: center">그림 10. git lg </figcaption><br></figure>
 
 <p>[참고 자료]</p>
-<p><a href="http://huns.me/development/1131" target="_blank" rel="noopener"><br>http://huns.me/development/1131<br></a></p>
-
+<h1 id="참고-문서"><a href="#참고-문서" class="headerlink" title="참고 문서"></a>참고 문서</h1><blockquote><ul>
+<li><a href="http://huns.me/development/1131" target="_blank" rel="noopener">gitflow, 쉬운 git branch 관리</a></li>
+</ul>
+</blockquote>
         </div>
 
         <blockquote class="post-copyright">
@@ -258,7 +264,7 @@
     <div class="content">
         
 <span class="post-time">
-    Updated：<time datetime="2018-02-05T16:36:21.000Z" itemprop="dateUpdated">2018-02-06 01:36:21</time>
+    Last updated: <time datetime="2018-02-07T10:22:19.000Z" itemprop="dateUpdated">2018-02-07 19:22:19</time>
 </span><br>
 
 
@@ -350,7 +356,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>Blog content licensed under the Creative Commons<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja"> CC BY-SA</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">

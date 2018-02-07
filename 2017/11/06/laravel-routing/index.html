@@ -27,7 +27,7 @@
 <meta property="og:url" content="https://seunguklee.github.io/2017/11/06/laravel-routing/index.html">
 <meta property="og:site_name" content="Seunguk&#39;s Blog">
 <meta property="og:description" content="URL라우팅에 대해 자세히 알아보기전에 우선 URL에 대해서 알아보겠습니다. 우리는 어떤 웹 페이지에 접속하기 위해 웹 브라우저에 URL을 입력합니다. 예를 들어 foo.com/posts 또는 foo.com/posts.php 처럼 확장자를 가진 것도 있습니다. URL을 구성하는 요소는 다음과 같습니다.   http://www.example.com:80/ar">
-<meta property="og:updated_time" content="2018-02-05T16:36:21.000Z">
+<meta property="og:updated_time" content="2018-02-07T10:21:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel Routing">
 <meta name="twitter:description" content="URL라우팅에 대해 자세히 알아보기전에 우선 URL에 대해서 알아보겠습니다. 우리는 어떤 웹 페이지에 접속하기 위해 웹 브라우저에 URL을 입력합니다. 예를 들어 foo.com/posts 또는 foo.com/posts.php 처럼 확장자를 가진 것도 있습니다. URL을 구성하는 요소는 다음과 같습니다.   http://www.example.com:80/ar">
@@ -124,7 +124,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search..">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -161,7 +161,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#URL"><span class="post-toc-number">1.</span> <span class="post-toc-text">URL</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Routing-이란"><span class="post-toc-number">2.</span> <span class="post-toc-text">Routing 이란?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#URL-파라미터"><span class="post-toc-number">3.</span> <span class="post-toc-text">URL 파라미터</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Routing-Name"><span class="post-toc-number">4.</span> <span class="post-toc-text">Routing Name</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Routing-Override"><span class="post-toc-number">5.</span> <span class="post-toc-text">Routing Override</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#URL"><span class="post-toc-number">1.</span> <span class="post-toc-text">URL</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Routing-이란"><span class="post-toc-number">2.</span> <span class="post-toc-text">Routing 이란?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#URL-파라미터"><span class="post-toc-number">3.</span> <span class="post-toc-text">URL 파라미터</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Routing-Name"><span class="post-toc-number">4.</span> <span class="post-toc-text">Routing Name</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Routing-Override"><span class="post-toc-number">5.</span> <span class="post-toc-text">Routing Override</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#참고-문서"><span class="post-toc-number">6.</span> <span class="post-toc-text">참고 문서</span></a></li></ol>
         </nav>
     </aside>
 
@@ -232,9 +232,10 @@
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/'</span>, [</span><br><span class="line">  <span class="string">'as'</span> =&gt; <span class="string">'home'</span>, function () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hello"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">'/home'</span>, function() &#123;</span><br><span class="line">  <span class="keyword">return</span> redirect(route(<span class="string">'home'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><code>redirect()</code> 함수는 리다렉션 HTTP 응답을 반환합니다. <code>/</code>에 대한 요청을 받는 라우트를 home 이라고 이름을 정해주었기 때문에 <code>route(&#39;home&#39;)</code>은 <code>http://호스트:포트</code> 문자열을 반환하게 됩니다.</p>
 <h1 id="Routing-Override"><a href="#Routing-Override" class="headerlink" title="Routing Override"></a>Routing Override</h1><p>만약 같은 URL을 두 번 정의하게 되면 아래쪽에 정의한 라우트가 먼저 정의한 라우트를 오버라이드하기 때문에 라우트를 정의할 때 순서에 주의하는게 좋습니다.</p>
-<p>[참고 자료]</p>
-<p><a href="https://appkr.github.io/l5book-snippets/draft/1003-routing.html" target="_blank" rel="noopener"><br>https://appkr.github.io/l5book-snippets/draft/1003-routing.html<br></a></p>
-
+<h1 id="참고-문서"><a href="#참고-문서" class="headerlink" title="참고 문서"></a>참고 문서</h1><blockquote><ul>
+<li><a href="https://appkr.github.io/l5book-snippets/draft/1003-routing.html" target="_blank" rel="noopener">라우팅</a></li>
+</ul>
+</blockquote>
         </div>
 
         <blockquote class="post-copyright">
@@ -242,7 +243,7 @@
     <div class="content">
         
 <span class="post-time">
-    Updated：<time datetime="2018-02-05T16:36:21.000Z" itemprop="dateUpdated">2018-02-06 01:36:21</time>
+    Last updated: <time datetime="2018-02-07T10:21:32.000Z" itemprop="dateUpdated">2018-02-07 19:21:32</time>
 </span><br>
 
 
@@ -334,7 +335,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>Blog content licensed under the Creative Commons<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja"> CC BY-SA</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">

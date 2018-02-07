@@ -20,17 +20,17 @@
     
     
     <meta name="keywords" content="web,php,laravel">
-    <meta name="description" content="-&amp;gt; 연산자(object operator)PHP는 객체 컨텍스트에서 클래스 멤버에 접급할때 객체 연산자(-&amp;gt;)를 사용한다. $user-&amp;gt;address 이때 클래스 멤버란, 상수, 메서드, 프로퍼티 등을 통칭하여 클래스 멤버라고 한다.클래스 안에서 객체 자신을 참조할 때는 $this 키워드를 사용하며 객체 컨텍스트에서는 부모 클래스도 $thi">
+    <meta name="description" content="-&amp;gt; 연산자(object operator)PHP는 객체 컨텍스트에서 클래스 멤버에 접급할때 객체 연산자(-&amp;gt;)를 사용한다. 1$user-&amp;gt;address 이때 클래스 멤버란, 상수, 메서드, 프로퍼티 등을 통칭하여 클래스 멤버라고 한다.클래스 안에서 객체 자신을 참조할 때는 $this 키워드를 사용하며 객체 컨텍스트에서는 부모 클래스도 $th">
 <meta name="keywords" content="web,php,laravel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP의 객체지향 연산자">
 <meta property="og:url" content="https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/index.html">
 <meta property="og:site_name" content="Seunguk&#39;s Blog">
-<meta property="og:description" content="-&amp;gt; 연산자(object operator)PHP는 객체 컨텍스트에서 클래스 멤버에 접급할때 객체 연산자(-&amp;gt;)를 사용한다. $user-&amp;gt;address 이때 클래스 멤버란, 상수, 메서드, 프로퍼티 등을 통칭하여 클래스 멤버라고 한다.클래스 안에서 객체 자신을 참조할 때는 $this 키워드를 사용하며 객체 컨텍스트에서는 부모 클래스도 $thi">
-<meta property="og:updated_time" content="2018-02-06T16:26:41.000Z">
+<meta property="og:description" content="-&amp;gt; 연산자(object operator)PHP는 객체 컨텍스트에서 클래스 멤버에 접급할때 객체 연산자(-&amp;gt;)를 사용한다. 1$user-&amp;gt;address 이때 클래스 멤버란, 상수, 메서드, 프로퍼티 등을 통칭하여 클래스 멤버라고 한다.클래스 안에서 객체 자신을 참조할 때는 $this 키워드를 사용하며 객체 컨텍스트에서는 부모 클래스도 $th">
+<meta property="og:updated_time" content="2018-02-07T08:48:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP의 객체지향 연산자">
-<meta name="twitter:description" content="-&amp;gt; 연산자(object operator)PHP는 객체 컨텍스트에서 클래스 멤버에 접급할때 객체 연산자(-&amp;gt;)를 사용한다. $user-&amp;gt;address 이때 클래스 멤버란, 상수, 메서드, 프로퍼티 등을 통칭하여 클래스 멤버라고 한다.클래스 안에서 객체 자신을 참조할 때는 $this 키워드를 사용하며 객체 컨텍스트에서는 부모 클래스도 $thi">
+<meta name="twitter:description" content="-&amp;gt; 연산자(object operator)PHP는 객체 컨텍스트에서 클래스 멤버에 접급할때 객체 연산자(-&amp;gt;)를 사용한다. 1$user-&amp;gt;address 이때 클래스 멤버란, 상수, 메서드, 프로퍼티 등을 통칭하여 클래스 멤버라고 한다.클래스 안에서 객체 자신을 참조할 때는 $this 키워드를 사용하며 객체 컨텍스트에서는 부모 클래스도 $th">
     
         <link rel="alternate" type="application/atom+xml" title="Seunguk&#39;s Blog" href="/atom.xml">
     
@@ -124,7 +124,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search..">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -188,9 +188,8 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="gt-연산자-object-operator"><a href="#gt-연산자-object-operator" class="headerlink" title="-&gt; 연산자(object operator)"></a>-&gt; 연산자(object operator)</h1><p>PHP는 객체 컨텍스트에서 클래스 멤버에 접급할때 객체 연산자(-&gt;)를 사용한다.</p>
-<p>$user-&gt;address</p>
-<p>이때 클래스 멤버란, 상수, 메서드, 프로퍼티 등을 통칭하여 클래스 멤버라고 한다.<br>클래스 안에서 객체 자신을 참조할 때는 $this 키워드를 사용하며 객체 컨텍스트에서는 부모 클래스도 $this로 참조한다.</p>
-<p>$this-&gt;address</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$user-&gt;address</span><br></pre></td></tr></table></figure>
+<p>이때 클래스 멤버란, 상수, 메서드, 프로퍼티 등을 통칭하여 클래스 멤버라고 한다.<br>클래스 안에서 객체 자신을 참조할 때는 $this 키워드를 사용하며 객체 컨텍스트에서는 부모 클래스도 $this로 참조한다.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">$this</span>-&gt;address</span><br></pre></td></tr></table></figure></p>
 <h1 id="연산자-scope-resolution-operator"><a href="#연산자-scope-resolution-operator" class="headerlink" title=":: 연산자(scope resolution operator)"></a>:: 연산자(scope resolution operator)</h1><p>정적 클래스 멤버에 접근할때는 범위 확인 연산자(::)를 사용한다.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Str::random()</span><br></pre></td></tr></table></figure></p>
 <p>클래스 안에서 정적 멤버들과 결합해서 사용할 때는 self 키워드를 사용하여 자신을 표현한다.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>::random()</span><br></pre></td></tr></table></figure></p>
 <p>정적 프로퍼티에 접근할 때는 달러($) 기호를 붙여햐한다.<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class::$property</span><br></pre></td></tr></table></figure></p>
@@ -205,7 +204,7 @@
     <div class="content">
         
 <span class="post-time">
-    Updated：<time datetime="2018-02-06T16:26:41.000Z" itemprop="dateUpdated">2018-02-07 01:26:41</time>
+    Last updated: <time datetime="2018-02-07T08:48:19.000Z" itemprop="dateUpdated">2018-02-07 17:48:19</time>
 </span><br>
 
 
@@ -290,7 +289,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>Blog content licensed under the Creative Commons<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja"> CC BY-SA</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">

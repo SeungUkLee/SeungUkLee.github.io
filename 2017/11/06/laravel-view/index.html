@@ -27,7 +27,7 @@
 <meta property="og:url" content="https://seunguklee.github.io/2017/11/06/laravel-view/index.html">
 <meta property="og:site_name" content="Seunguk&#39;s Blog">
 <meta property="og:description" content="라라벨에서 뷰를 반환하는 방법과 뷰에 데이터를 바인딩하는 방법, 블레이드에 대해 알아보도록 하겠습니다. view() 함수에서 다른 뷰를 반환하려면 어떻게 하면 좋을까요?123Route::get(&apos;/&apos;, function() &amp;#123;  return view(&apos;errors.503&apos;);&amp;#125;); 위 코드는 resources/views 디렉토리안에 erro">
-<meta property="og:updated_time" content="2018-02-05T16:36:21.000Z">
+<meta property="og:updated_time" content="2018-02-07T10:29:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel View&amp;Blade">
 <meta name="twitter:description" content="라라벨에서 뷰를 반환하는 방법과 뷰에 데이터를 바인딩하는 방법, 블레이드에 대해 알아보도록 하겠습니다. view() 함수에서 다른 뷰를 반환하려면 어떻게 하면 좋을까요?123Route::get(&apos;/&apos;, function() &amp;#123;  return view(&apos;errors.503&apos;);&amp;#125;); 위 코드는 resources/views 디렉토리안에 erro">
@@ -124,7 +124,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search..">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -161,7 +161,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#데이터-바인딩"><span class="post-toc-number">1.</span> <span class="post-toc-text">데이터 바인딩</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#데이터-바인딩"><span class="post-toc-number">1.</span> <span class="post-toc-text">데이터 바인딩</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#참고-문서"><span class="post-toc-number">2.</span> <span class="post-toc-text">참고 문서</span></a></li></ol>
         </nav>
     </aside>
 
@@ -200,9 +200,10 @@
 <p>view() 함수 뒤에 with() 메서드를 체인하여 데이터를 바인딩할 수 있습니다.<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/'</span>, function() &#123;</span><br><span class="line">  <span class="keyword">return</span> view(<span class="string">'welcom'</span>)-&gt;with(<span class="string">'name'</span>, <span class="string">'mr.lee'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>다음과 같이 배열을 이용하여 여러 개의 데이터를 넘길 수 있습니다.<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/'</span>, function() &#123;</span><br><span class="line">  <span class="keyword">return</span> view(<span class="string">'welcom'</span>)-&gt;with([</span><br><span class="line">    <span class="string">'name'</span> =&gt; <span class="string">'mr.lee'</span>,</span><br><span class="line">    <span class="string">'content'</span> =&gt; <span class="string">'hello'</span>,</span><br><span class="line">  ]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>with() 메서드를 체인하지 않고 view() 함수의 두번째 인자로 넘기는 방법도 있습니다.<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/'</span>, function() &#123;</span><br><span class="line">  <span class="keyword">return</span> view(<span class="string">'welcom'</span>, [</span><br><span class="line">    <span class="string">'name'</span> =&gt; <span class="string">'mr.lee'</span>,</span><br><span class="line">    <span class="string">'content'</span> =&gt; <span class="string">'hello'</span>,</span><br><span class="line">  ]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>[참고 자료]</p>
-<p><a href="https://appkr.github.io/l5book-snippets/draft/1004-view-data-binding.html" target="_blank" rel="noopener"><br>https://appkr.github.io/l5book-snippets/draft/1004-view-data-binding.html<br></a></p>
-
+<h1 id="참고-문서"><a href="#참고-문서" class="headerlink" title="참고 문서"></a>참고 문서</h1><blockquote><ul>
+<li><a href="https://appkr.github.io/l5book-snippets/draft/1004-view-data-binding.html" target="_blank" rel="noopener">뷰와 데이터 바인딩</a></li>
+</ul>
+</blockquote>
         </div>
 
         <blockquote class="post-copyright">
@@ -210,7 +211,7 @@
     <div class="content">
         
 <span class="post-time">
-    Updated：<time datetime="2018-02-05T16:36:21.000Z" itemprop="dateUpdated">2018-02-06 01:36:21</time>
+    Last updated: <time datetime="2018-02-07T10:29:56.000Z" itemprop="dateUpdated">2018-02-07 19:29:56</time>
 </span><br>
 
 
@@ -302,7 +303,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>Blog content licensed under the Creative Commons<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja"> CC BY-SA</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">

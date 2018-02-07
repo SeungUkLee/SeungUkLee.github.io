@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Seunguk&#39;s Blog">
 <meta property="og:description" content="웹 개발에 있어 대표적으로 권장하지 않는 방식이 있습니다.  HTML(표현)과 PHP(비즈니스 로직)를 한 파일에 섞어 사용하는 방식 마치 HTML처럼 웹페이지별로 PHP 파일이 존재하고 이를 웹 브라우저로 접근하는 방식  1번과 같은 방식은 MVC 패턴을 이용하여 더 나은 방식으로 개선할 수 있습니다. 그렇다면 2번은 어떻게 하면 개선할 수 있을까요?2번">
 <meta property="og:image" content="https://seunguklee.github.io/images/image-front-controller-pattern.jpg">
-<meta property="og:updated_time" content="2018-02-05T16:36:21.000Z">
+<meta property="og:updated_time" content="2018-02-07T10:14:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Front Controller Pattern">
 <meta name="twitter:description" content="웹 개발에 있어 대표적으로 권장하지 않는 방식이 있습니다.  HTML(표현)과 PHP(비즈니스 로직)를 한 파일에 섞어 사용하는 방식 마치 HTML처럼 웹페이지별로 PHP 파일이 존재하고 이를 웹 브라우저로 접근하는 방식  1번과 같은 방식은 MVC 패턴을 이용하여 더 나은 방식으로 개선할 수 있습니다. 그렇다면 2번은 어떻게 하면 개선할 수 있을까요?2번">
@@ -126,7 +126,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search..">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -163,7 +163,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Front-Controller-패턴이란"><span class="post-toc-number">1.</span> <span class="post-toc-text">Front Controller 패턴이란?</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Front-Controller-패턴이란"><span class="post-toc-number">1.</span> <span class="post-toc-text">Front Controller 패턴이란?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#참고-문서"><span class="post-toc-number">2.</span> <span class="post-toc-text">참고 문서</span></a></li></ol>
         </nav>
     </aside>
 
@@ -209,8 +209,10 @@
 <li>뷰는 응답을 생성하여 컨트롤러에 반환합니다.</li>
 <li>컨트롤러가 브라우저에 뷰로 부터 되돌려받은 응답을 전송</li>
 </ol>
-<p>[참고 자료]</p>
-<p><a href="https://medium.com/@smartbosslee/php-%EC%98%88%EC%A0%9C%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%ED%94%84%EB%9F%B0%ED%8A%B8-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-front-controller-%ED%8C%A8%ED%84%B4-c00e9d222963" target="_blank" rel="noopener"><br>https://medium.com/@smartbosslee/php-%EC%98%88%EC%A0%9C%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%ED%94%84%EB%9F%B0%ED%8A%B8-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-front-controller-%ED%8C%A8%ED%84%B4-c00e9d222963<br></a></p>
+<h1 id="참고-문서"><a href="#참고-문서" class="headerlink" title="참고 문서"></a>참고 문서</h1><blockquote><ul>
+<li><a href="https://medium.com/@smartbosslee/php-%EC%98%88%EC%A0%9C%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%ED%94%84%EB%9F%B0%ED%8A%B8-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-front-controller-%ED%8C%A8%ED%84%B4-c00e9d222963" target="_blank" rel="noopener">PHP 예제로 알아보는 프런트 컨트롤러 (Front Controller) 패턴</a></li>
+</ul>
+</blockquote>
 
         </div>
 
@@ -219,7 +221,7 @@
     <div class="content">
         
 <span class="post-time">
-    Updated：<time datetime="2018-02-05T16:36:21.000Z" itemprop="dateUpdated">2018-02-06 01:36:21</time>
+    Last updated: <time datetime="2018-02-07T10:14:54.000Z" itemprop="dateUpdated">2018-02-07 19:14:54</time>
 </span><br>
 
 
@@ -254,18 +256,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2017/11/03/phpstorm-shortcuts/" id="post-prev" class="post-nav-link">
+      <a href="/2017/11/03/MVC-Pattern/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">PHPStrom 단축키</h4>
+        <h4 class="title">MVC Pattern</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/11/03/MVC-Pattern/" id="post-next" class="post-nav-link">
+      <a href="/2017/07/28/composer/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">MVC Pattern</h4>
+        <h4 class="title">컴포저</h4>
       </a>
     </div>
   
@@ -311,7 +313,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>Blog content licensed under the Creative Commons<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja"> CC BY-SA</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
