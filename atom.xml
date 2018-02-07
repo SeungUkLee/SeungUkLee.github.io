@@ -167,41 +167,6 @@
   </entry>
   
   <entry>
-    <title>Laravel Project Structure</title>
-    <link href="https://seunguklee.github.io/2017/11/05/laravel-project-structure/"/>
-    <id>https://seunguklee.github.io/2017/11/05/laravel-project-structure/</id>
-    <published>2017-11-04T15:00:00.000Z</published>
-    <updated>2018-02-05T16:36:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Laravel 프로젝트를 만들면 다음과 같은 디렉토리가 구성됩니다. (Laravel 5.3 기준)</p><pre><code class="lang-sh">.&#x251C;&#x2500;&#x2500; .env                              <span class="hljs-comment"># &#xAE00;&#xB85C;&#xBC8C; &#xC124;&#xC815; &#xC911; &#xBBFC;&#xAC10;&#xD55C; &#xAC12;, </span>&#x2502;                                     <span class="hljs-comment"># &#xC11C;&#xBE44;&#xC2A4; &#xC2E4;&#xD589; &#xD658;&#xACBD;(&#xAC1C;&#xBC1C;/&#xC6B4;&#xC601;)&#xC5D0; &#xB530;&#xB77C; &#xB2EC;&#xB77C;&#xC838;&#xC57C; &#xD558;&#xB294; &#xAC12;&#xC744; &#xC368; &#xB193;&#xB294; &#xACF3;</span>&#x251C;&#x2500;&#x2500; app&#x2502;   &#x251C;&#x2500;&#x2500; Console                       &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; Commands                  <span class="hljs-comment"># &#xC6B0;&#xB9AC;&#xAC00; &#xB9CC;&#xB4E0; &#xCF58;&#xC194; &#xBA85;&#xB839;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; Kernel.php                <span class="hljs-comment"># &#xCF58;&#xC194; &#xBA85;&#xB839;, &#xD06C;&#xB860; &#xC791;&#xC5C5;&#xC744; &#xB4F1;&#xB85D;&#xD558;&#xB294; &#xB808;&#xC9C0;&#xC2A4;&#xD2B8;&#xB9AC;</span>&#x2502;   &#x251C;&#x2500;&#x2500; Events                        <span class="hljs-comment"># &#xC6B0;&#xB9AC;&#xAC00; &#xB9CC;&#xB4E0; &#xC774;&#xBCA4;&#xD2B8; &#xD074;&#xB798;&#xC2A4;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x251C;&#x2500;&#x2500; Exceptions                    <span class="hljs-comment"># &#xC6B0;&#xB9AC;&#xAC00; &#xB9CC;&#xB4E0; &#xC608;&#xC678;(Exception) &#xD074;&#xB798;&#xC2A4;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; Handler.php               <span class="hljs-comment"># &#xC804;&#xC5ED; &#xC608;&#xC678; &#xCC98;&#xB9AC; &#xADDC;&#xCE59;&#xC744; &#xC815;&#xC758;&#xD55C; &#xD074;&#xB798;&#xC2A4;</span>&#x2502;   &#x251C;&#x2500;&#x2500; Http                          <span class="hljs-comment"># HTTP &#xC694;&#xCCAD;&#xC744; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xD074;&#xB798;&#xC2A4;&#xB4E4;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; Controllers               <span class="hljs-comment"># HTTP &#xC694;&#xCCAD;&#xC744; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xCEE8;&#xD2B8;&#xB864;&#xB7EC;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; Kernel.php                <span class="hljs-comment"># HTTP &#xC694;&#xCCAD; &#xCC98;&#xB9AC;&#xB97C; &#xC704;&#xD574; &#xAE30;&#xBCF8;&#xC774; &#xB418;&#xB294; &#xCEE4;&#xB110;</span>&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; Middleware                <span class="hljs-comment"># &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; Requests                  <span class="hljs-comment"># HTTP &#xD3FC; &#xB9AC;&#xD018;&#xC2A4;&#xD2B8;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; routes.php                <span class="hljs-comment"># &#xC694;&#xCCAD; URL&#xACFC; &#xCC98;&#xB9AC; &#xB85C;&#xC9C1;(&#xCEE8;&#xD2B8;&#xB864;&#xB7EC;)&#xC744; &#xC5F0;&#xACB0;&#xD558;&#xB294; &#xB9E4;&#xD551; &#xD14C;&#xC774;&#xBE14;</span>&#x2502;   &#x251C;&#x2500;&#x2500; Jobs                          <span class="hljs-comment"># &#xD050; &#xC791;&#xC5C5; &#xCC98;&#xB9AC;&#xAE30;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC; </span>&#x2502;   &#x251C;&#x2500;&#x2500; Listeners                     <span class="hljs-comment"># &#xC774;&#xBCA4;&#xD2B8; &#xB9AC;&#xC2A4;&#xB108;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x251C;&#x2500;&#x2500; Policies                      <span class="hljs-comment"># &#xC811;&#xADFC; &#xAD8C;&#xD55C; &#xC81C;&#xC5B4;&#xB97C; &#xC704;&#xD55C; &#xC815;&#xCC45;&#xB4E4;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC; </span>&#x2502;   &#x251C;&#x2500;&#x2500; Providers                     <span class="hljs-comment"># &#xC11C;&#xBE44;&#xC2A4; &#xD504;&#xB85C;&#xBC14;&#xC774;&#xB354;(service provider)&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC; </span>&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; AppServiceProvider.php    <span class="hljs-comment"># &#xC6B0;&#xB9AC;&#xAC00; &#xB9CC;&#xB4E0; &#xC11C;&#xBE44;&#xC2A4;&#xB97C; &#xC11C;&#xBE44;&#xC2A4; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xC5D0; &#xB4F1;&#xB85D;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xD074;&#xB798;&#xC2A4; </span>&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; AuthServiceProvider.php   <span class="hljs-comment"># &#xC0AC;&#xC6A9;&#xC790; &#xC778;&#xAC00;&#xC640; &#xAD00;&#xB828;&#xB41C; &#xC815;&#xCC45;&#xC744; &#xB4F1;&#xB85D;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xD074;&#xB798;&#xC2A4;</span>&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; EventServiceProvider.php  <span class="hljs-comment"># &#xC774;&#xBCA4;&#xD2B8;&#xC640; &#xC774;&#xBCA4;&#xD2B8; &#xCC98;&#xB9AC;&#xAE30;&#xB97C; &#xC5F0;&#xACB0;&#xD558;&#xB294; &#xD074;&#xB798;&#xC2A4;</span>&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; RouteServiceProvider.php  <span class="hljs-comment"># routes.php &#xC5D0;&#xC11C; &#xC815;&#xC758;&#xD55C; &#xB77C;&#xC6B0;&#xD305;&#xC744; &#xD65C;&#xC131;&#xD654;&#xD558;&#xB294; &#xD074;&#xB798;&#xC2A4; </span>&#x2502;   &#x2514;&#x2500;&#x2500; User.php                      <span class="hljs-comment"># &#xAE30;&#xBCF8; &#xB0B4;&#xC7A5; User &#xBAA8;&#xB378;</span>&#x251C;&#x2500;&#x2500; composer.json                     <span class="hljs-comment"># &#xC774; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC758; &#xC758;&#xC874;&#xC131; &#xB808;&#xC9C0;&#xC2A4;&#xD2B8;&#xB9AC;</span>&#x251C;&#x2500;&#x2500; config                            <span class="hljs-comment"># &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4;, &#xD050;, &#xBA54;&#xC77C; &#xB4F1; &#xC804;&#xC5ED; &#xC124;&#xC815;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x251C;&#x2500;&#x2500; database&#x2502;   &#x251C;&#x2500;&#x2500; migrations                    <span class="hljs-comment"># &#xC774; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC758; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4; &#xD14C;&#xC774;&#xBE14; &#xC2A4;&#xD0A4;&#xB9C8;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC; </span>&#x2502;   &#x2514;&#x2500;&#x2500; seeds                         <span class="hljs-comment"># &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4; &#xD14C;&#xC774;&#xBE14;&#xC5D0; &#xB354;&#xBBF8; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC0BD;&#xC785;&#xD558;&#xB294; &#xD074;&#xB798;&#xC2A4;&#xB4E4;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x251C;&#x2500;&#x2500; gulpfile.js                       <span class="hljs-comment"># &#xC5D8;&#xB9AD;&#xC11C;(elixir, &#xD504;&#xB7F0;&#xD2B8; &#xC5D4;&#xB4DC; &#xBE4C;&#xB4DC; &#xC790;&#xB3D9;&#xD654;) &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;</span>&#x251C;&#x2500;&#x2500; public                            <span class="hljs-comment"># &#xC6F9; &#xC11C;&#xBC84; &#xB8E8;&#xD2B8;(document root)</span>&#x251C;&#x2500;&#x2500; resources&#x2502;   &#x251C;&#x2500;&#x2500; assets                        <span class="hljs-comment"># &#xC5D8;&#xB9AD;&#xC11C; &#xBE4C;&#xB4DC; &#xC804;&#xC758; &#xC6D0;&#xBCF8; &#xC790;&#xBC14;&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;, CSS &#xB4F1;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x251C;&#x2500;&#x2500; lang                          <span class="hljs-comment"># &#xB2E4;&#xAD6D;&#xC5B4; &#xC9C0;&#xC6D0;&#xC744; &#xC704;&#xD55C; &#xC5B8;&#xC5B4;&#xBCC4; &#xC0AC;&#xC804;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x2514;&#x2500;&#x2500; views                         <span class="hljs-comment"># &#xBDF0; &#xD30C;&#xC77C;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x251C;&#x2500;&#x2500; storage                           <span class="hljs-comment"># &#xB77C;&#xB77C;&#xBCA8;&#xC758; &#xD30C;&#xC77C; &#xC800;&#xC7A5;&#xC18C; (&#xCE90;&#xC2DC;, &#xB85C;&#xADF8; &#xB4F1;)</span>&#x251C;&#x2500;&#x2500; tests                             <span class="hljs-comment"># &#xD14C;&#xC2A4;&#xD2B8; &#xD30C;&#xC77C;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2514;&#x2500;&#x2500; vendor                            <span class="hljs-comment"># &#xC774; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xAC00; &#xC758;&#xC874;&#xD558;&#xB294; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span></code></pre><p>상위 디렉토리를 용도별로 다음과 같이 정리할 수 있습니다.</p><ol><li><code>app/</code> : 애플리케이션의 핵심 코드가 위치하는 곳. 모델, 컨트롤러, 서비스 프로바이더 등 이 폴더에 위치하게 된다.  </li><li><code>bootstrap</code> : 라라벨 프레임워크 부팅에 필요한 파일과 속도 향상을 위해 컴파일된 php 파일이 위치하고 있다. (사용자는 이 디렉토리 안에 있는 파일들을 수정 할 필요가 없다고 한다.)</li><li><code>config</code> : 인증, DB, 세션, 메일, 큐 등 애플리케이션에 필요한 전역 설정을 담는 디렉토리.  </li><li><code>database</code> : DB 스키마를 관리하는 migrations 와 초기 데이터를 설정하는 seeds 데이터, 모델에 데이터를 입력하기 위한 factories가 위치하는 디렉토리.</li><li><code>public</code> : 이미지, css, 글꼴, 자바스크립트 같은 정적 리소스와 라라벨의 인덱스 파일(index.php)이 위치한 곳. 웹 서버에 라라벨을 등록할 경우 DocumentRoot를 public으로 설정해야 정상 작동한다.(웹 서버 루트)</li><li><code>resources</code> : Less 같은 css 전처리기나 CoffeScript 같은 자바스크립트 프레임워크에서 사용하는 리소스와 뷰 코드, 다국어 지원 파일이 위치한 디렉토리.</li><li><code>routes</code> : 라우팅 정의 테이블이 있는 디렉토리.</li><li><code>storage</code> : 컴파일된 템플릿 파일, 캐시 데이터, 로그 파일 등이 위치. (라라벨의 파일 저장소)</li><li><code>tests</code> : PHPUnit으로 테스트를 작성할 경우 이 디렉토리에 위치.</li><li><code>vendor</code> : 의존성 있는 외부 라이브러리가 위치한 디렉토리.</li></ol><p>라라벨 프로젝트는 [그림 1]과 같이 크게 4 부분으로 나눌 수 있습니다.</p><figure><br>    <a href="/images/laravel-project-structure.jpg"><img src="/images/laravel-project-structure.jpg"></a><br>    <figcaption style="text-align: center">그림 1. 라라벨 프로젝트 구조 </figcaption><br></figure><ol><li>개발한 애플리케이션 layer</li><li>laravel/laravel 라라벨 프레임 워크. 라라벨 핵심 컴포넌트(3) 와 외부 컴포넌트(4)를 조합하여 웹 서비스를 만들 수 있는 기본 틀</li><li>laravel/framework 라라벨 핵심 컴포넌트. 파운데이션 또는 커널이라 부르기도 한다.</li><li>외부 컴포넌트</li></ol><p>라라벨 프로젝트를 생성할 때 보통 composer를 이용하여 <code>composer create-project laravel/laravel blog --prefer-dist</code> 와 같은 명령어를 사용하는데 이는 2번을 설치하는 것입니다. 새로 만든 <code>composer.json</code> 파일을 열어 보면 3번과 4번을 요구하는 내용이 선언된 것을 볼 수 있습니다. <code>composer.json</code>을 이용하여 설치를 수행하면 2,3,4에 해당하는 내용을 설치하게 됩니다.</p><p>[그림 1]을 보시면 2번과 3번이 나누어져 있는 것을 볼 수 있습니다. 이는 라라벨 부 버전이 올라갈 때 큰 장점이 됩니다.<br>라라벨 프레임워크(2)는 우리가 적성한 코드와 섞여져 있는 반면에 라라벨 핵심 컴포넌트(3)는 우리가 작성한 코드와 완전히 분리되어 있는데 이는 버전 변경의 충격을 흡수합니다. 즉 우리가 작성한 코드가 속한 완충 레이어(2)만 지침에 맞도록 업그레이드하면 됩니다.</p><p>[참고 자료]</p><p><a href="https://appkr.github.io/l5book-snippets/draft/1001-installation.html" target="_blank" rel="noopener"><br>https://appkr.github.io/l5book-snippets/draft/1001-installation.html<br></a></p><p><a href="https://laravel.kr/docs/5.3/structure" target="_blank" rel="noopener"><br>https://laravel.kr/docs/5.3/structure<br></a></p><p><a href="https://www.lesstif.com/pages/viewpage.action?pageId=24445288" target="_blank" rel="noopener"><br>https://www.lesstif.com/pages/viewpage.action?pageId=24445288<br></a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Laravel 프로젝트를 만들면 다음과 같은 디렉토리가 구성됩니다. (Laravel 5.3 기준)&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-sh&quot;&gt;.
-&amp;#x251C;&amp;#x2500;&amp;#x2500; .env                    
-      
-    
-    </summary>
-    
-      <category term="web" scheme="https://seunguklee.github.io/categories/web/"/>
-    
-      <category term="php" scheme="https://seunguklee.github.io/categories/web/php/"/>
-    
-      <category term="laravel" scheme="https://seunguklee.github.io/categories/web/php/laravel/"/>
-    
-    
-      <category term="web" scheme="https://seunguklee.github.io/tags/web/"/>
-    
-      <category term="php" scheme="https://seunguklee.github.io/tags/php/"/>
-    
-      <category term="laravel" scheme="https://seunguklee.github.io/tags/laravel/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Laravel 작동 원리</title>
     <link href="https://seunguklee.github.io/2017/11/05/laravel-logic/"/>
     <id>https://seunguklee.github.io/2017/11/05/laravel-logic/</id>
@@ -236,19 +201,21 @@
   </entry>
   
   <entry>
-    <title>what is php-fpm</title>
-    <link href="https://seunguklee.github.io/2017/11/03/php-fpm/"/>
-    <id>https://seunguklee.github.io/2017/11/03/php-fpm/</id>
-    <published>2017-11-02T15:00:00.000Z</published>
+    <title>Laravel Project Structure</title>
+    <link href="https://seunguklee.github.io/2017/11/05/laravel-project-structure/"/>
+    <id>https://seunguklee.github.io/2017/11/05/laravel-project-structure/</id>
+    <published>2017-11-04T15:00:00.000Z</published>
     <updated>2018-02-05T16:36:21.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="php-fpm-이란"><a href="#php-fpm-이란" class="headerlink" title="php-fpm 이란 ?"></a>php-fpm 이란 ?</h1><p>보통 nginx + php-fpm 이런 조합을 많이 볼 수 있습니다. nginx는 apache 처럼 웹 서버 중 하나입니다. 그렇다면 php-fpm은 무엇일까요?</p><p>nginx 웹서버(정적인 html 웹문서 파일을 웹브라우저에 전송해주는 역할)만으로는 동적인 페이지 구현이 어렵다 -&gt; 동적인 페이지 구현이 필요 -&gt; 웹서버 이외의 외부 프로그램에서 처리하는 방법을 사용 -&gt; 웹 서버에서 요청을 받아 그 요청을 외부 프로그램에 넘겨주면, 외부 프로그램은 프로그램 파일을 읽어 html로 변환하는 단계를 거친다. 이를 CGI라고 부른다. -&gt; php-fpm도 CGI에 해당(FastCGI)</p><h1 id="FastCGI-vs-CGI"><a href="#FastCGI-vs-CGI" class="headerlink" title="FastCGI vs CGI"></a>FastCGI vs CGI</h1><p>CGI : 요청할때마다 새로운 프로세스 생성</p><p>FastCGI : 요청할때마다 새로운 프로세스를 생성하는 것이 아니라 이미 생성한 프로세스를 재활용하는 방법을 사용. 그래서 CGI보다 좀 더 빠른 버전이라고 할 수 있습니다.</p><p>[참고 자료]</p><p><a href="https://www.conory.com/note_linux/42956" target="_blank" rel="noopener"><br>https://www.conory.com/note_linux/42956<br></a></p>]]></content>
+    <content type="html"><![CDATA[<p>Laravel 프로젝트를 만들면 다음과 같은 디렉토리가 구성됩니다. (Laravel 5.3 기준)</p><pre><code class="lang-sh">.&#x251C;&#x2500;&#x2500; .env                              <span class="hljs-comment"># &#xAE00;&#xB85C;&#xBC8C; &#xC124;&#xC815; &#xC911; &#xBBFC;&#xAC10;&#xD55C; &#xAC12;, </span>&#x2502;                                     <span class="hljs-comment"># &#xC11C;&#xBE44;&#xC2A4; &#xC2E4;&#xD589; &#xD658;&#xACBD;(&#xAC1C;&#xBC1C;/&#xC6B4;&#xC601;)&#xC5D0; &#xB530;&#xB77C; &#xB2EC;&#xB77C;&#xC838;&#xC57C; &#xD558;&#xB294; &#xAC12;&#xC744; &#xC368; &#xB193;&#xB294; &#xACF3;</span>&#x251C;&#x2500;&#x2500; app&#x2502;   &#x251C;&#x2500;&#x2500; Console                       &#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; Commands                  <span class="hljs-comment"># &#xC6B0;&#xB9AC;&#xAC00; &#xB9CC;&#xB4E0; &#xCF58;&#xC194; &#xBA85;&#xB839;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; Kernel.php                <span class="hljs-comment"># &#xCF58;&#xC194; &#xBA85;&#xB839;, &#xD06C;&#xB860; &#xC791;&#xC5C5;&#xC744; &#xB4F1;&#xB85D;&#xD558;&#xB294; &#xB808;&#xC9C0;&#xC2A4;&#xD2B8;&#xB9AC;</span>&#x2502;   &#x251C;&#x2500;&#x2500; Events                        <span class="hljs-comment"># &#xC6B0;&#xB9AC;&#xAC00; &#xB9CC;&#xB4E0; &#xC774;&#xBCA4;&#xD2B8; &#xD074;&#xB798;&#xC2A4;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x251C;&#x2500;&#x2500; Exceptions                    <span class="hljs-comment"># &#xC6B0;&#xB9AC;&#xAC00; &#xB9CC;&#xB4E0; &#xC608;&#xC678;(Exception) &#xD074;&#xB798;&#xC2A4;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; Handler.php               <span class="hljs-comment"># &#xC804;&#xC5ED; &#xC608;&#xC678; &#xCC98;&#xB9AC; &#xADDC;&#xCE59;&#xC744; &#xC815;&#xC758;&#xD55C; &#xD074;&#xB798;&#xC2A4;</span>&#x2502;   &#x251C;&#x2500;&#x2500; Http                          <span class="hljs-comment"># HTTP &#xC694;&#xCCAD;&#xC744; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xD074;&#xB798;&#xC2A4;&#xB4E4;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; Controllers               <span class="hljs-comment"># HTTP &#xC694;&#xCCAD;&#xC744; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xCEE8;&#xD2B8;&#xB864;&#xB7EC;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; Kernel.php                <span class="hljs-comment"># HTTP &#xC694;&#xCCAD; &#xCC98;&#xB9AC;&#xB97C; &#xC704;&#xD574; &#xAE30;&#xBCF8;&#xC774; &#xB418;&#xB294; &#xCEE4;&#xB110;</span>&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; Middleware                <span class="hljs-comment"># &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; Requests                  <span class="hljs-comment"># HTTP &#xD3FC; &#xB9AC;&#xD018;&#xC2A4;&#xD2B8;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; routes.php                <span class="hljs-comment"># &#xC694;&#xCCAD; URL&#xACFC; &#xCC98;&#xB9AC; &#xB85C;&#xC9C1;(&#xCEE8;&#xD2B8;&#xB864;&#xB7EC;)&#xC744; &#xC5F0;&#xACB0;&#xD558;&#xB294; &#xB9E4;&#xD551; &#xD14C;&#xC774;&#xBE14;</span>&#x2502;   &#x251C;&#x2500;&#x2500; Jobs                          <span class="hljs-comment"># &#xD050; &#xC791;&#xC5C5; &#xCC98;&#xB9AC;&#xAE30;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC; </span>&#x2502;   &#x251C;&#x2500;&#x2500; Listeners                     <span class="hljs-comment"># &#xC774;&#xBCA4;&#xD2B8; &#xB9AC;&#xC2A4;&#xB108;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x251C;&#x2500;&#x2500; Policies                      <span class="hljs-comment"># &#xC811;&#xADFC; &#xAD8C;&#xD55C; &#xC81C;&#xC5B4;&#xB97C; &#xC704;&#xD55C; &#xC815;&#xCC45;&#xB4E4;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC; </span>&#x2502;   &#x251C;&#x2500;&#x2500; Providers                     <span class="hljs-comment"># &#xC11C;&#xBE44;&#xC2A4; &#xD504;&#xB85C;&#xBC14;&#xC774;&#xB354;(service provider)&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC; </span>&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; AppServiceProvider.php    <span class="hljs-comment"># &#xC6B0;&#xB9AC;&#xAC00; &#xB9CC;&#xB4E0; &#xC11C;&#xBE44;&#xC2A4;&#xB97C; &#xC11C;&#xBE44;&#xC2A4; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xC5D0; &#xB4F1;&#xB85D;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xD074;&#xB798;&#xC2A4; </span>&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; AuthServiceProvider.php   <span class="hljs-comment"># &#xC0AC;&#xC6A9;&#xC790; &#xC778;&#xAC00;&#xC640; &#xAD00;&#xB828;&#xB41C; &#xC815;&#xCC45;&#xC744; &#xB4F1;&#xB85D;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xD074;&#xB798;&#xC2A4;</span>&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; EventServiceProvider.php  <span class="hljs-comment"># &#xC774;&#xBCA4;&#xD2B8;&#xC640; &#xC774;&#xBCA4;&#xD2B8; &#xCC98;&#xB9AC;&#xAE30;&#xB97C; &#xC5F0;&#xACB0;&#xD558;&#xB294; &#xD074;&#xB798;&#xC2A4;</span>&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; RouteServiceProvider.php  <span class="hljs-comment"># routes.php &#xC5D0;&#xC11C; &#xC815;&#xC758;&#xD55C; &#xB77C;&#xC6B0;&#xD305;&#xC744; &#xD65C;&#xC131;&#xD654;&#xD558;&#xB294; &#xD074;&#xB798;&#xC2A4; </span>&#x2502;   &#x2514;&#x2500;&#x2500; User.php                      <span class="hljs-comment"># &#xAE30;&#xBCF8; &#xB0B4;&#xC7A5; User &#xBAA8;&#xB378;</span>&#x251C;&#x2500;&#x2500; composer.json                     <span class="hljs-comment"># &#xC774; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC758; &#xC758;&#xC874;&#xC131; &#xB808;&#xC9C0;&#xC2A4;&#xD2B8;&#xB9AC;</span>&#x251C;&#x2500;&#x2500; config                            <span class="hljs-comment"># &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4;, &#xD050;, &#xBA54;&#xC77C; &#xB4F1; &#xC804;&#xC5ED; &#xC124;&#xC815;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x251C;&#x2500;&#x2500; database&#x2502;   &#x251C;&#x2500;&#x2500; migrations                    <span class="hljs-comment"># &#xC774; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC758; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4; &#xD14C;&#xC774;&#xBE14; &#xC2A4;&#xD0A4;&#xB9C8;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC; </span>&#x2502;   &#x2514;&#x2500;&#x2500; seeds                         <span class="hljs-comment"># &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4; &#xD14C;&#xC774;&#xBE14;&#xC5D0; &#xB354;&#xBBF8; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC0BD;&#xC785;&#xD558;&#xB294; &#xD074;&#xB798;&#xC2A4;&#xB4E4;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x251C;&#x2500;&#x2500; gulpfile.js                       <span class="hljs-comment"># &#xC5D8;&#xB9AD;&#xC11C;(elixir, &#xD504;&#xB7F0;&#xD2B8; &#xC5D4;&#xB4DC; &#xBE4C;&#xB4DC; &#xC790;&#xB3D9;&#xD654;) &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;</span>&#x251C;&#x2500;&#x2500; public                            <span class="hljs-comment"># &#xC6F9; &#xC11C;&#xBC84; &#xB8E8;&#xD2B8;(document root)</span>&#x251C;&#x2500;&#x2500; resources&#x2502;   &#x251C;&#x2500;&#x2500; assets                        <span class="hljs-comment"># &#xC5D8;&#xB9AD;&#xC11C; &#xBE4C;&#xB4DC; &#xC804;&#xC758; &#xC6D0;&#xBCF8; &#xC790;&#xBC14;&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;, CSS &#xB4F1;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x251C;&#x2500;&#x2500; lang                          <span class="hljs-comment"># &#xB2E4;&#xAD6D;&#xC5B4; &#xC9C0;&#xC6D0;&#xC744; &#xC704;&#xD55C; &#xC5B8;&#xC5B4;&#xBCC4; &#xC0AC;&#xC804;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2502;   &#x2514;&#x2500;&#x2500; views                         <span class="hljs-comment"># &#xBDF0; &#xD30C;&#xC77C;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x251C;&#x2500;&#x2500; storage                           <span class="hljs-comment"># &#xB77C;&#xB77C;&#xBCA8;&#xC758; &#xD30C;&#xC77C; &#xC800;&#xC7A5;&#xC18C; (&#xCE90;&#xC2DC;, &#xB85C;&#xADF8; &#xB4F1;)</span>&#x251C;&#x2500;&#x2500; tests                             <span class="hljs-comment"># &#xD14C;&#xC2A4;&#xD2B8; &#xD30C;&#xC77C;&#xC744; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span>&#x2514;&#x2500;&#x2500; vendor                            <span class="hljs-comment"># &#xC774; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xAC00; &#xC758;&#xC874;&#xD558;&#xB294; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB97C; &#xB2F4;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;</span></code></pre><p>상위 디렉토리를 용도별로 다음과 같이 정리할 수 있습니다.</p><ol><li><code>app/</code> : 애플리케이션의 핵심 코드가 위치하는 곳. 모델, 컨트롤러, 서비스 프로바이더 등 이 폴더에 위치하게 된다.  </li><li><code>bootstrap</code> : 라라벨 프레임워크 부팅에 필요한 파일과 속도 향상을 위해 컴파일된 php 파일이 위치하고 있다. (사용자는 이 디렉토리 안에 있는 파일들을 수정 할 필요가 없다고 한다.)</li><li><code>config</code> : 인증, DB, 세션, 메일, 큐 등 애플리케이션에 필요한 전역 설정을 담는 디렉토리.  </li><li><code>database</code> : DB 스키마를 관리하는 migrations 와 초기 데이터를 설정하는 seeds 데이터, 모델에 데이터를 입력하기 위한 factories가 위치하는 디렉토리.</li><li><code>public</code> : 이미지, css, 글꼴, 자바스크립트 같은 정적 리소스와 라라벨의 인덱스 파일(index.php)이 위치한 곳. 웹 서버에 라라벨을 등록할 경우 DocumentRoot를 public으로 설정해야 정상 작동한다.(웹 서버 루트)</li><li><code>resources</code> : Less 같은 css 전처리기나 CoffeScript 같은 자바스크립트 프레임워크에서 사용하는 리소스와 뷰 코드, 다국어 지원 파일이 위치한 디렉토리.</li><li><code>routes</code> : 라우팅 정의 테이블이 있는 디렉토리.</li><li><code>storage</code> : 컴파일된 템플릿 파일, 캐시 데이터, 로그 파일 등이 위치. (라라벨의 파일 저장소)</li><li><code>tests</code> : PHPUnit으로 테스트를 작성할 경우 이 디렉토리에 위치.</li><li><code>vendor</code> : 의존성 있는 외부 라이브러리가 위치한 디렉토리.</li></ol><p>라라벨 프로젝트는 [그림 1]과 같이 크게 4 부분으로 나눌 수 있습니다.</p><figure><br>    <a href="/images/laravel-project-structure.jpg"><img src="/images/laravel-project-structure.jpg"></a><br>    <figcaption style="text-align: center">그림 1. 라라벨 프로젝트 구조 </figcaption><br></figure><ol><li>개발한 애플리케이션 layer</li><li>laravel/laravel 라라벨 프레임 워크. 라라벨 핵심 컴포넌트(3) 와 외부 컴포넌트(4)를 조합하여 웹 서비스를 만들 수 있는 기본 틀</li><li>laravel/framework 라라벨 핵심 컴포넌트. 파운데이션 또는 커널이라 부르기도 한다.</li><li>외부 컴포넌트</li></ol><p>라라벨 프로젝트를 생성할 때 보통 composer를 이용하여 <code>composer create-project laravel/laravel blog --prefer-dist</code> 와 같은 명령어를 사용하는데 이는 2번을 설치하는 것입니다. 새로 만든 <code>composer.json</code> 파일을 열어 보면 3번과 4번을 요구하는 내용이 선언된 것을 볼 수 있습니다. <code>composer.json</code>을 이용하여 설치를 수행하면 2,3,4에 해당하는 내용을 설치하게 됩니다.</p><p>[그림 1]을 보시면 2번과 3번이 나누어져 있는 것을 볼 수 있습니다. 이는 라라벨 부 버전이 올라갈 때 큰 장점이 됩니다.<br>라라벨 프레임워크(2)는 우리가 적성한 코드와 섞여져 있는 반면에 라라벨 핵심 컴포넌트(3)는 우리가 작성한 코드와 완전히 분리되어 있는데 이는 버전 변경의 충격을 흡수합니다. 즉 우리가 작성한 코드가 속한 완충 레이어(2)만 지침에 맞도록 업그레이드하면 됩니다.</p><p>[참고 자료]</p><p><a href="https://appkr.github.io/l5book-snippets/draft/1001-installation.html" target="_blank" rel="noopener"><br>https://appkr.github.io/l5book-snippets/draft/1001-installation.html<br></a></p><p><a href="https://laravel.kr/docs/5.3/structure" target="_blank" rel="noopener"><br>https://laravel.kr/docs/5.3/structure<br></a></p><p><a href="https://www.lesstif.com/pages/viewpage.action?pageId=24445288" target="_blank" rel="noopener"><br>https://www.lesstif.com/pages/viewpage.action?pageId=24445288<br></a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;php-fpm-이란&quot;&gt;&lt;a href=&quot;#php-fpm-이란&quot; class=&quot;headerlink&quot; title=&quot;php-fpm 이란 ?&quot;&gt;&lt;/a&gt;php-fpm 이란 ?&lt;/h1&gt;&lt;p&gt;보통 nginx + php-fpm 이런 조합을 많이 볼 수 있
+        &lt;p&gt;Laravel 프로젝트를 만들면 다음과 같은 디렉토리가 구성됩니다. (Laravel 5.3 기준)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-sh&quot;&gt;.
+&amp;#x251C;&amp;#x2500;&amp;#x2500; .env                    
       
     
     </summary>
@@ -257,10 +224,14 @@
     
       <category term="php" scheme="https://seunguklee.github.io/categories/web/php/"/>
     
+      <category term="laravel" scheme="https://seunguklee.github.io/categories/web/php/laravel/"/>
+    
     
       <category term="web" scheme="https://seunguklee.github.io/tags/web/"/>
     
       <category term="php" scheme="https://seunguklee.github.io/tags/php/"/>
+    
+      <category term="laravel" scheme="https://seunguklee.github.io/tags/laravel/"/>
     
   </entry>
   
@@ -297,6 +268,35 @@
       <category term="phpstorm" scheme="https://seunguklee.github.io/tags/phpstorm/"/>
     
       <category term="ide" scheme="https://seunguklee.github.io/tags/ide/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>what is php-fpm</title>
+    <link href="https://seunguklee.github.io/2017/11/03/php-fpm/"/>
+    <id>https://seunguklee.github.io/2017/11/03/php-fpm/</id>
+    <published>2017-11-02T15:00:00.000Z</published>
+    <updated>2018-02-05T16:36:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="php-fpm-이란"><a href="#php-fpm-이란" class="headerlink" title="php-fpm 이란 ?"></a>php-fpm 이란 ?</h1><p>보통 nginx + php-fpm 이런 조합을 많이 볼 수 있습니다. nginx는 apache 처럼 웹 서버 중 하나입니다. 그렇다면 php-fpm은 무엇일까요?</p><p>nginx 웹서버(정적인 html 웹문서 파일을 웹브라우저에 전송해주는 역할)만으로는 동적인 페이지 구현이 어렵다 -&gt; 동적인 페이지 구현이 필요 -&gt; 웹서버 이외의 외부 프로그램에서 처리하는 방법을 사용 -&gt; 웹 서버에서 요청을 받아 그 요청을 외부 프로그램에 넘겨주면, 외부 프로그램은 프로그램 파일을 읽어 html로 변환하는 단계를 거친다. 이를 CGI라고 부른다. -&gt; php-fpm도 CGI에 해당(FastCGI)</p><h1 id="FastCGI-vs-CGI"><a href="#FastCGI-vs-CGI" class="headerlink" title="FastCGI vs CGI"></a>FastCGI vs CGI</h1><p>CGI : 요청할때마다 새로운 프로세스 생성</p><p>FastCGI : 요청할때마다 새로운 프로세스를 생성하는 것이 아니라 이미 생성한 프로세스를 재활용하는 방법을 사용. 그래서 CGI보다 좀 더 빠른 버전이라고 할 수 있습니다.</p><p>[참고 자료]</p><p><a href="https://www.conory.com/note_linux/42956" target="_blank" rel="noopener"><br>https://www.conory.com/note_linux/42956<br></a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;php-fpm-이란&quot;&gt;&lt;a href=&quot;#php-fpm-이란&quot; class=&quot;headerlink&quot; title=&quot;php-fpm 이란 ?&quot;&gt;&lt;/a&gt;php-fpm 이란 ?&lt;/h1&gt;&lt;p&gt;보통 nginx + php-fpm 이런 조합을 많이 볼 수 있
+      
+    
+    </summary>
+    
+      <category term="web" scheme="https://seunguklee.github.io/categories/web/"/>
+    
+      <category term="php" scheme="https://seunguklee.github.io/categories/web/php/"/>
+    
+    
+      <category term="web" scheme="https://seunguklee.github.io/tags/web/"/>
+    
+      <category term="php" scheme="https://seunguklee.github.io/tags/php/"/>
     
   </entry>
   
@@ -391,37 +391,6 @@
   </entry>
   
   <entry>
-    <title>what is node.js and express.js</title>
-    <link href="https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/"/>
-    <id>https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/</id>
-    <published>2017-07-26T15:00:00.000Z</published>
-    <updated>2018-02-05T16:36:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Node-js란"><a href="#Node-js란" class="headerlink" title="Node.js란?"></a>Node.js란?</h1><p>Node.js는 WebServer가 아니다. 브라우저가 아닌 환경에서도 javascript를 사용할수 있게 하는 javascript runtime 이다. 서버 사이드에서도 많이 사용되며, 데스크탑 윈도우 프로그램으로 만들수도 있다. Apache경우에는 Html 파일경로를 지정해주고 서버를 열고 PHP를 실행한다던가 세션을 관리 등등 여러가지 일을 하지만 node.js 자체로는 아무것도 하지 않으며 그런 설정이 전혀 없다. 대신 Http 서버를 직접 작성해야한다. 즉, node.js는 코드를 실행할수 있는 하나의 방법에 불구한 javascript runtime이다.</p><h1 id="Express-js란"><a href="#Express-js란" class="headerlink" title="Express.js란?"></a>Express.js란?</h1><p>WebServer에서 필요한 대부분의 기능이 이미 구현된 Web Framework이다. 라우팅, 세션, 템플릿 등 Web Application을 만들때 필요한 많은 기능들이 이미 구현되어있다.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Node-js란&quot;&gt;&lt;a href=&quot;#Node-js란&quot; class=&quot;headerlink&quot; title=&quot;Node.js란?&quot;&gt;&lt;/a&gt;Node.js란?&lt;/h1&gt;&lt;p&gt;Node.js는 WebServer가 아니다. 브라우저가 아닌 환경에서도 java
-      
-    
-    </summary>
-    
-      <category term="web" scheme="https://seunguklee.github.io/categories/web/"/>
-    
-      <category term="nodejs" scheme="https://seunguklee.github.io/categories/web/nodejs/"/>
-    
-    
-      <category term="web" scheme="https://seunguklee.github.io/tags/web/"/>
-    
-      <category term="node.js" scheme="https://seunguklee.github.io/tags/node-js/"/>
-    
-      <category term="express.js" scheme="https://seunguklee.github.io/tags/express-js/"/>
-    
-  </entry>
-  
-  <entry>
     <title>PHP의 객체지향 연산자</title>
     <link href="https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/"/>
     <id>https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/</id>
@@ -451,6 +420,37 @@
       <category term="php" scheme="https://seunguklee.github.io/tags/php/"/>
     
       <category term="laravel" scheme="https://seunguklee.github.io/tags/laravel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>what is node.js and express.js</title>
+    <link href="https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/"/>
+    <id>https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/</id>
+    <published>2017-07-26T15:00:00.000Z</published>
+    <updated>2018-02-05T16:36:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Node-js란"><a href="#Node-js란" class="headerlink" title="Node.js란?"></a>Node.js란?</h1><p>Node.js는 WebServer가 아니다. 브라우저가 아닌 환경에서도 javascript를 사용할수 있게 하는 javascript runtime 이다. 서버 사이드에서도 많이 사용되며, 데스크탑 윈도우 프로그램으로 만들수도 있다. Apache경우에는 Html 파일경로를 지정해주고 서버를 열고 PHP를 실행한다던가 세션을 관리 등등 여러가지 일을 하지만 node.js 자체로는 아무것도 하지 않으며 그런 설정이 전혀 없다. 대신 Http 서버를 직접 작성해야한다. 즉, node.js는 코드를 실행할수 있는 하나의 방법에 불구한 javascript runtime이다.</p><h1 id="Express-js란"><a href="#Express-js란" class="headerlink" title="Express.js란?"></a>Express.js란?</h1><p>WebServer에서 필요한 대부분의 기능이 이미 구현된 Web Framework이다. 라우팅, 세션, 템플릿 등 Web Application을 만들때 필요한 많은 기능들이 이미 구현되어있다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Node-js란&quot;&gt;&lt;a href=&quot;#Node-js란&quot; class=&quot;headerlink&quot; title=&quot;Node.js란?&quot;&gt;&lt;/a&gt;Node.js란?&lt;/h1&gt;&lt;p&gt;Node.js는 WebServer가 아니다. 브라우저가 아닌 환경에서도 java
+      
+    
+    </summary>
+    
+      <category term="web" scheme="https://seunguklee.github.io/categories/web/"/>
+    
+      <category term="nodejs" scheme="https://seunguklee.github.io/categories/web/nodejs/"/>
+    
+    
+      <category term="web" scheme="https://seunguklee.github.io/tags/web/"/>
+    
+      <category term="node.js" scheme="https://seunguklee.github.io/tags/node-js/"/>
+    
+      <category term="express.js" scheme="https://seunguklee.github.io/tags/express-js/"/>
     
   </entry>
   
