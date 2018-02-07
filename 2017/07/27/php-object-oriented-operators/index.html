@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>PHP의 객체지향 연산자 | Seunguk&#39;s Blog | Computer scientist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="web,php,laravel">
+    <meta name="description" content="-&amp;gt; 연산자(object operator)PHP는 객체 컨텍스트에서 클래스 멤버에 접급할때 객체 연산자(-&amp;gt;)를 사용한다. $user-&amp;gt;address 이때 클래스 멤버란, 상수, 메서드, 프로퍼티 등을 통칭하여 클래스 멤버라고 한다.클래스 안에서 객체 자신을 참조할 때는 $this 키워드를 사용하며 객체 컨텍스트에서는 부모 클래스도 $thi">
+<meta name="keywords" content="web,php,laravel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP의 객체지향 연산자">
+<meta property="og:url" content="https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/index.html">
+<meta property="og:site_name" content="Seunguk&#39;s Blog">
+<meta property="og:description" content="-&amp;gt; 연산자(object operator)PHP는 객체 컨텍스트에서 클래스 멤버에 접급할때 객체 연산자(-&amp;gt;)를 사용한다. $user-&amp;gt;address 이때 클래스 멤버란, 상수, 메서드, 프로퍼티 등을 통칭하여 클래스 멤버라고 한다.클래스 안에서 객체 자신을 참조할 때는 $this 키워드를 사용하며 객체 컨텍스트에서는 부모 클래스도 $thi">
+<meta property="og:updated_time" content="2018-02-06T16:26:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP의 객체지향 연산자">
+<meta name="twitter:description" content="-&amp;gt; 연산자(object operator)PHP는 객체 컨텍스트에서 클래스 멤버에 접급할때 객체 연산자(-&amp;gt;)를 사용한다. $user-&amp;gt;address 이때 클래스 멤버란, 상수, 메서드, 프로퍼티 등을 통칭하여 클래스 멤버라고 한다.클래스 안에서 객체 자신을 참조할 때는 $this 키워드를 사용하며 객체 컨텍스트에서는 부모 클래스도 $thi">
+    
+        <link rel="alternate" type="application/atom+xml" title="Seunguk&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Seunguk Lee</h5>
+          <a href="mailto:lsy931106@gmail.com" title="lsy931106@gmail.com" class="mail">lsy931106@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/profile"  >
+                <i class="icon icon-lg icon-user"></i>
+                Profile
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/seunguklee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">PHP의 객체지향 연산자</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">PHP의 객체지향 연산자</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-07-26T15:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-07-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/php/">php</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/php/laravel/">laravel</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gt-연산자-object-operator"><span class="post-toc-number">1.</span> <span class="post-toc-text">-&gt; 연산자(object operator)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#연산자-scope-resolution-operator"><span class="post-toc-number">2.</span> <span class="post-toc-text">:: 연산자(scope resolution operator)</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-php-object-oriented-operators"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">PHP의 객체지향 연산자</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-07-27 00:00:00" datetime="2017-07-26T15:00:00.000Z"  itemprop="datePublished">2017-07-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/php/">php</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/php/laravel/">laravel</a></li></ul></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="gt-연산자-object-operator"><a href="#gt-연산자-object-operator" class="headerlink" title="-&gt; 연산자(object operator)"></a>-&gt; 연산자(object operator)</h1><p>PHP는 객체 컨텍스트에서 클래스 멤버에 접급할때 객체 연산자(-&gt;)를 사용한다.</p>
+<p>$user-&gt;address</p>
+<p>이때 클래스 멤버란, 상수, 메서드, 프로퍼티 등을 통칭하여 클래스 멤버라고 한다.<br>클래스 안에서 객체 자신을 참조할 때는 $this 키워드를 사용하며 객체 컨텍스트에서는 부모 클래스도 $this로 참조한다.</p>
+<p>$this-&gt;address</p>
+<h1 id="연산자-scope-resolution-operator"><a href="#연산자-scope-resolution-operator" class="headerlink" title=":: 연산자(scope resolution operator)"></a>:: 연산자(scope resolution operator)</h1><p>정적 클래스 멤버에 접근할때는 범위 확인 연산자(::)를 사용한다.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Str::random()</span><br></pre></td></tr></table></figure></p>
+<p>클래스 안에서 정적 멤버들과 결합해서 사용할 때는 self 키워드를 사용하여 자신을 표현한다.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>::random()</span><br></pre></td></tr></table></figure></p>
+<p>정적 프로퍼티에 접근할 때는 달러($) 기호를 붙여햐한다.<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class::$property</span><br></pre></td></tr></table></figure></p>
+<p>뿐만 아니라, 부모 클래스를 지칭할 때는 parent 키워드를 사용한다.</p>
+<p>클래스와 메서드를 연결하여 문서에 표현할 때는 정적선언 여부와 상관없이 :: 연산자를 사용하는데 PHP 공식문서에도 이와 같은 표시 형식을 따르고 있으므로 PHP 문서를 볼 때 참고하면 될 것 같다.(<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PDO::query()</span><br></pre></td></tr></table></figure></p>
+<p>참고로 <code>App\User::class</code> 는 PHP5.6 이상부터 쓸 수 있는 문법이며 전체 클래스 경로를 반환한다.</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-02-06T16:26:41.000Z" itemprop="dateUpdated">2018-02-07 01:26:41</time>
+</span><br>
+
+
+        
+        URL：<a href="/2017/07/27/php-object-oriented-operators/" target="_blank" rel="external">https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://seunguklee.github.io">
+            <img src="/img/avatar.jpg" alt="Seunguk Lee">
+            Seunguk Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/&title=《PHP의 객체지향 연산자》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/&title=《PHP의 객체지향 연산자》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PHP의 객체지향 연산자》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/07/27/what-is-nodejs-and-expressjs/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">what is node.js and express.js</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        UserView：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        PageView：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Seunguk Lee &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/&title=《PHP의 객체지향 연산자》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/&title=《PHP의 객체지향 연산자》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PHP의 객체지향 연산자》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/07/27/php-object-oriented-operators/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACt0lEQVR42u3aQW7jMAwF0N7/0hlgVgMMYn+SouvF86pIU0VPBUSG5M9P/Hz+Pr33fP55rn/7/zu/vX74wcPDw2ttPfmY5P3ftpKv9u1Q8j3g4eHhPcO7vuivL+Xe1nvr5Cvg4eHhvYFXDQnX4SHPhPPjxsPDw3sb7zoRv97WpBiBh4eH905etZyaXPpRsSAIBvl+8PDw8J7hVRtgb/h5sb+Hh4eHN+iqzy/fPFT00u6bdfDw8PAWeEmxYF5srSboSeJeCBh4eHh4C7yk6ZUXdidDAAlpNOiAh4eHN+ZVW/tnSwZJAj3ZFR4eHt4GrxoY8o9PkPnKB1pceHh4eAu8Xrrcu7gnZYjkIPDw8PC2edUv+adKCdX/QF7eLTTA8PDw8Fq8XsG0V97tFREK8S3v1+Hh4eG1eNWhqGowqA4Q5Gl3uWiLh4eHd5Q3qfv2gkT1EHtHhoeHh/cML0mIq42rXikhCRV4eHh4z/OqaXTvWs+HqOZttpsGGB4eHt4CrzpcVb30N8YR8PDw8J7kVccCqgME+VWel3ELq+Hh4eE9yKu2rHoDAcl1Pxr8wsPDw3uQl39w/rd5gp4fzc1qeHh4eAu86tar+N5AVbVs0Yw2eHh4eGPepEHVG6KqhplmwQIPDw9vgZc3lvKkuVewqA5mVb8Y4OHh4Z3l5Y383qhBb2Br8goeHh7eHq/XvM/bY9VGWrU8cZOO4+Hh4a3x8ob92RCSjHmNStJ4eHh4R3mf4jMZCEgOpTfydTN0hYeHh3eUN4kn1aGoXuMtCRvlNhgeHh7emFctrebliWpbKx8pwMPDw3sDb94Sm4SHSUJ88wUADw8P7zW8PLTkGX3SPCs3xvDw8PB+lddLuzeGBlZSajw8PLyFYkRvDCtPf3uvNDNuPDw8vHH3vNfK2ijd5kMJx9h4eHh4Ke8PoRJK36j5ysQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>PHP Overloading | Seunguk&#39;s Blog | Computer scientist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="web,php">
+    <meta name="description" content="PHP OverloadingPHP Overloading은 자바에서의 Overloading과 다릅니다. 자바에서의 Overloading은 다음 예제와 같이 method 이름은 같지만 parameter type 또는 갯수가 다른 여러개의 method가 존재하여 용도별로 사용하는 것을 말합니다. 1234567891011public int add(int a, in">
+<meta name="keywords" content="web,php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP Overloading">
+<meta property="og:url" content="https://seunguklee.github.io/2017/11/24/php-overloading/index.html">
+<meta property="og:site_name" content="Seunguk&#39;s Blog">
+<meta property="og:description" content="PHP OverloadingPHP Overloading은 자바에서의 Overloading과 다릅니다. 자바에서의 Overloading은 다음 예제와 같이 method 이름은 같지만 parameter type 또는 갯수가 다른 여러개의 method가 존재하여 용도별로 사용하는 것을 말합니다. 1234567891011public int add(int a, in">
+<meta property="og:updated_time" content="2018-02-05T16:36:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP Overloading">
+<meta name="twitter:description" content="PHP OverloadingPHP Overloading은 자바에서의 Overloading과 다릅니다. 자바에서의 Overloading은 다음 예제와 같이 method 이름은 같지만 parameter type 또는 갯수가 다른 여러개의 method가 존재하여 용도별로 사용하는 것을 말합니다. 1234567891011public int add(int a, in">
+    
+        <link rel="alternate" type="application/atom+xml" title="Seunguk&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Seunguk Lee</h5>
+          <a href="mailto:lsy931106@gmail.com" title="lsy931106@gmail.com" class="mail">lsy931106@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/profile"  >
+                <i class="icon icon-lg icon-user"></i>
+                Profile
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/seunguklee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">PHP Overloading</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">PHP Overloading</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-23T15:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-11-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/php/">php</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#PHP-Overloading"><span class="post-toc-number">1.</span> <span class="post-toc-text">PHP Overloading</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Property-Overloading"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Property Overloading</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Method-Overloading"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Method Overloading</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-php-overloading"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">PHP Overloading</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-24 00:00:00" datetime="2017-11-23T15:00:00.000Z"  itemprop="datePublished">2017-11-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/php/">php</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="PHP-Overloading"><a href="#PHP-Overloading" class="headerlink" title="PHP Overloading"></a>PHP Overloading</h1><p>PHP Overloading은 자바에서의 Overloading과 다릅니다.</p>
+<p>자바에서의 Overloading은 다음 예제와 같이 method 이름은 같지만 parameter type 또는 갯수가 다른 여러개의 method가 존재하여 용도별로 사용하는 것을 말합니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">add</span><span class="params">(<span class="keyword">float</span> a, <span class="keyword">float</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b + c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>하지만 PHP Overloading은 동적으로 method나 property를 생성하는 것을 말합니다. 즉 이 말은 실행 시점에서 method나 property가 없는데 동적으로 생성하여 클래스를 임의로 확장할 수 있다는 말입니다. 이렇게 동적으로 생성된 멤버는 magic method를 통해 다양한 형태로 처리할 수 있습니다. 이때 magic method란 PHP에서 특수한 기능을 위해 미리 정의한 메소드로서 <code>__</code> (두개의 언더스코어)로 시작합니다. overloading된 메소드는 반드시 public으로 정의되어야 합니다.</p>
+<h2 id="Property-Overloading"><a href="#Property-Overloading" class="headerlink" title="Property Overloading"></a>Property Overloading</h2><p>Property overloading은 <code>__set</code>, <code>__get</code>, <code>__isset</code>, <code>__unset</code>을 통해 이루어 집니다.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DynamicPropertyTest</span></span></span><br><span class="line">&#123;</span><br><span class="line">    private $data = array();</span><br><span class="line"></span><br><span class="line">    public function __set($key, $value)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;data[$key] = $value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function __get($key)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(array_key_exists($key, $this-&gt;data)) &#123;</span><br><span class="line">            <span class="keyword">return</span> $this-&gt;data[$key];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            throw new UnexpectedValueException($key . <span class="string">'은 없는 값입니다.'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$prop = new DynamicPropertyTest();</span><br><span class="line">$prop-&gt;title = <span class="string">"DynamicProperty!"</span>;</span><br><span class="line"></span><br><span class="line">echo $prop-&gt;title;</span><br><span class="line">echo $prop-&gt;content;</span><br></pre></td></tr></table></figure>
+<p><code>__set()</code> method는 property 값을 설정할 때 호출되며 <code>__get()</code> method는 property 값을 읽을 때 호출됩니다.<br>위 코드를 실행하면 <code>title</code>이라는 property를 동적으로 생성되어 <code>DynamicProperty!</code> 라는 제목이 출력 될 것입니다. 하지만 content라는 프로퍼티는 생성을 하지 않았으므로 <code>UnexpectedValueException</code>이 발생할 것입니다. 다음은 실행 결과입니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">php DynamicPropertyTest.php</span><br><span class="line">DynamicProperty!PHP Fatal error:  Uncaught UnexpectedValueException: content은 없는 값입니다. in /Users/SeungUk/PhpstormProjects/ModernPHP/DynamicPropertyTest.php:17</span><br><span class="line">Stack trace:</span><br><span class="line">#0 /Users/SeungUk/PhpstormProjects/ModernPHP/DynamicPropertyTest.php(26): DynamicPropertyTest-&gt;__get(&apos;content&apos;)</span><br><span class="line">#1 &#123;main&#125;</span><br><span class="line">  thrown in /Users/SeungUk/PhpstormProjects/ModernPHP/DynamicPropertyTest.php on line 17</span><br><span class="line"></span><br><span class="line">Fatal error: Uncaught UnexpectedValueException: content은 없는 값입니다. in /Users/SeungUk/PhpstormProjects/ModernPHP/DynamicPropertyTest.php:17</span><br><span class="line">Stack trace:</span><br><span class="line">#0 /Users/SeungUk/PhpstormProjects/ModernPHP/DynamicPropertyTest.php(26): DynamicPropertyTest-&gt;__get(&apos;content&apos;)</span><br><span class="line">#1 &#123;main&#125;</span><br><span class="line">  thrown in /Users/SeungUk/PhpstormProjects/ModernPHP/DynamicPropertyTest.php on line 17</span><br></pre></td></tr></table></figure>
+<p>Property overloading을 통해 런타임에 property가 생성되고 사용할 수 있다는 것을 확인할 수 있습니다.</p>
+<h2 id="Method-Overloading"><a href="#Method-Overloading" class="headerlink" title="Method Overloading"></a>Method Overloading</h2><p>Method Overloading 같은 경우는 일반 method일 경우에는 <code>__call</code>, static method일 경우에는 <code>__callStatic</code>을 구현하면 됩니다.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DynamicMethodTest</span></span></span><br><span class="line">&#123;</span><br><span class="line">    public function __call($name, $arg)</span><br><span class="line">    &#123;</span><br><span class="line">        echo <span class="string">"일반 method : $name' "</span>;</span><br><span class="line">        echo <span class="string">"argument : "</span> . implode(<span class="string">', '</span>, $arg). <span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static function __callStatic($name, $arg)</span><br><span class="line">    &#123;</span><br><span class="line">        echo <span class="string">"static method : '$name' "</span>;</span><br><span class="line">        echo <span class="string">"argument : "</span> . implode(<span class="string">', '</span>, $arg). <span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/<span class="regexp">/ class 내 method로 호출</span></span><br><span class="line"><span class="regexp">$obj = new DynamicMethodTest();</span></span><br><span class="line"><span class="regexp">$obj-&gt;whereName('name', 'seunguk');</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ static method로 호출</span></span><br><span class="line"><span class="regexp">DynamicMethodTest::whereName('name', 'seunguk');</span></span><br></pre></td></tr></table></figure>
+<p>위의 코드를 보시면 <code>DynamicMethodTesst</code> 클래스에 없는 <code>whereName</code> method를 호출하였지만 PHP 인터프리터가 자동으로 생성해준것을 확인할 수 있습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">php DynamicMethodTest.php</span><br><span class="line">일반 method : whereName&apos; argument : name, seunguk</span><br><span class="line">static method : &apos;whereName&apos; argument : name, seunguk</span><br></pre></td></tr></table></figure>
+<p>Dynamic Property and Dynamic Method는 런타임에 임의의 method와 property를 소스 수정없이 만들 수 있으므로 유연함과 확장성을 제공합니다.</p>
+<p>[참고 자료]</p>
+<p><a href="https://www.lesstif.com/pages/viewpage.action?pageId=26083489" target="_blank" rel="noopener"><br>https://www.lesstif.com/pages/viewpage.action?pageId=26083489<br></a></p>
+<p><a href="http://tcpschool.com/php/php_oop_overloading" target="_blank" rel="noopener"><br>http://tcpschool.com/php/php_oop_overloading<br></a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-02-05T16:36:21.000Z" itemprop="dateUpdated">2018-02-06 01:36:21</time>
+</span><br>
+
+
+        
+        URL：<a href="/2017/11/24/php-overloading/" target="_blank" rel="external">https://seunguklee.github.io/2017/11/24/php-overloading/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://seunguklee.github.io">
+            <img src="/img/avatar.jpg" alt="Seunguk Lee">
+            Seunguk Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/11/24/php-overloading/&title=《PHP Overloading》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/11/24/php-overloading/&title=《PHP Overloading》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/11/24/php-overloading/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PHP Overloading》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/11/24/php-overloading/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/11/24/php-overloading/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/16/trait/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">trait</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        UserView：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        PageView：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Seunguk Lee &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/11/24/php-overloading/&title=《PHP Overloading》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/11/24/php-overloading/&title=《PHP Overloading》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/11/24/php-overloading/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PHP Overloading》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/11/24/php-overloading/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/11/24/php-overloading/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNUlEQVR42u3aQW7DMAwF0dz/0u62QCF1PikHkDRaBY4b63nBUiQ/H7yeX6t2/9+/HV3hT4mXDBkytmU80zV/AHnwCDP6/fn14RNlyJBxAaP2eB5q/9kEDtPD6zJkyJAxDb5pIji/X4YMGTLWMmoJZefoK0OGjJsZZEOdsto8NfzqWVyGDBkbMngo/P7nV/obMmTI2IrxhIv/Ti3Vqy0ZMmSczeABjrcw06MvOqCS/ciQIeNQBj9S9psHPOnkA2TBO5YhQ8a2jNrBtQPmB1dyP8LIkCHjCEYt7JJxChIca+ljMXuVIUPGhgz+E+loRfotKd4NX5AMGTIuYPAwuuBIiQN9kKTKkCHjaMaqjZLwSrK4VvVMhgwZhzL4w2rJX6f0z1+TDBkybmDwAyRP3WpHXAJD0yIyZMg4iNGptM/DKO+a8kZpekiWIUPGGQy+rZRUK/fXmp0yZMi4jZGmaOQK32L6/0GGDBn3MGopWnrQDcpnYdCXIUPG2QzeBiAhNQ2jnRLbcHJEhgwZFzDSRG1Vglgbwgi6HDJkyDiaEadojXt426DYj5UhQ8ZBjDRN7IyX1dqrKDWUIUPGEYwnXO81I/nsBBq2kCFDxkGMTphLBy/S0v8rIVuGDBnbMmrDXrXtri3PyZAh4zZGq9SFC239tA8NW8iQIUMGDp1ki60Bi1rVUIYMGRcwSHFtVTEuGAeRIUPGBYy0GZA2LPnrqBXvZMiQcTaDHx1bAbHx7bKmpgwZMvZj/ABR2NsZy1dgGAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>what is node.js and express.js | Seunguk&#39;s Blog | Computer scientist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="web,node.js,express.js">
+    <meta name="description" content="Node.js란?Node.js는 WebServer가 아니다. 브라우저가 아닌 환경에서도 javascript를 사용할수 있게 하는 javascript runtime 이다. 서버 사이드에서도 많이 사용되며, 데스크탑 윈도우 프로그램으로 만들수도 있다. Apache경우에는 Html 파일경로를 지정해주고 서버를 열고 PHP를 실행한다던가 세션을 관리 등등 여러가지">
+<meta name="keywords" content="web,node.js,express.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="what is node.js and express.js">
+<meta property="og:url" content="https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/index.html">
+<meta property="og:site_name" content="Seunguk&#39;s Blog">
+<meta property="og:description" content="Node.js란?Node.js는 WebServer가 아니다. 브라우저가 아닌 환경에서도 javascript를 사용할수 있게 하는 javascript runtime 이다. 서버 사이드에서도 많이 사용되며, 데스크탑 윈도우 프로그램으로 만들수도 있다. Apache경우에는 Html 파일경로를 지정해주고 서버를 열고 PHP를 실행한다던가 세션을 관리 등등 여러가지">
+<meta property="og:updated_time" content="2018-02-05T16:36:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="what is node.js and express.js">
+<meta name="twitter:description" content="Node.js란?Node.js는 WebServer가 아니다. 브라우저가 아닌 환경에서도 javascript를 사용할수 있게 하는 javascript runtime 이다. 서버 사이드에서도 많이 사용되며, 데스크탑 윈도우 프로그램으로 만들수도 있다. Apache경우에는 Html 파일경로를 지정해주고 서버를 열고 PHP를 실행한다던가 세션을 관리 등등 여러가지">
+    
+        <link rel="alternate" type="application/atom+xml" title="Seunguk&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Seunguk Lee</h5>
+          <a href="mailto:lsy931106@gmail.com" title="lsy931106@gmail.com" class="mail">lsy931106@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/profile"  >
+                <i class="icon icon-lg icon-user"></i>
+                Profile
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/seunguklee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">what is node.js and express.js</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">what is node.js and express.js</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-07-26T15:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-07-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/nodejs/">nodejs</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Node-js란"><span class="post-toc-number">1.</span> <span class="post-toc-text">Node.js란?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Express-js란"><span class="post-toc-number">2.</span> <span class="post-toc-text">Express.js란?</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-what-is-nodejs-and-expressjs"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">what is node.js and express.js</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-07-27 00:00:00" datetime="2017-07-26T15:00:00.000Z"  itemprop="datePublished">2017-07-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/nodejs/">nodejs</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Node-js란"><a href="#Node-js란" class="headerlink" title="Node.js란?"></a>Node.js란?</h1><p>Node.js는 WebServer가 아니다. 브라우저가 아닌 환경에서도 javascript를 사용할수 있게 하는 javascript runtime 이다. 서버 사이드에서도 많이 사용되며, 데스크탑 윈도우 프로그램으로 만들수도 있다. Apache경우에는 Html 파일경로를 지정해주고 서버를 열고 PHP를 실행한다던가 세션을 관리 등등 여러가지 일을 하지만 node.js 자체로는 아무것도 하지 않으며 그런 설정이 전혀 없다. 대신 Http 서버를 직접 작성해야한다. 즉, node.js는 코드를 실행할수 있는 하나의 방법에 불구한 javascript runtime이다.</p>
+<h1 id="Express-js란"><a href="#Express-js란" class="headerlink" title="Express.js란?"></a>Express.js란?</h1><p>WebServer에서 필요한 대부분의 기능이 이미 구현된 Web Framework이다. 라우팅, 세션, 템플릿 등 Web Application을 만들때 필요한 많은 기능들이 이미 구현되어있다.</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-02-05T16:36:21.000Z" itemprop="dateUpdated">2018-02-06 01:36:21</time>
+</span><br>
+
+
+        
+        URL：<a href="/2017/07/27/what-is-nodejs-and-expressjs/" target="_blank" rel="external">https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://seunguklee.github.io">
+            <img src="/img/avatar.jpg" alt="Seunguk Lee">
+            Seunguk Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express-js/">express.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/&title=《what is node.js and express.js》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/&title=《what is node.js and express.js》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《what is node.js and express.js》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/07/28/composer/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">컴포저</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/07/27/php-object-oriented-operators/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">PHP의 객체지향 연산자</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        UserView：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        PageView：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Seunguk Lee &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/&title=《what is node.js and express.js》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/&title=《what is node.js and express.js》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《what is node.js and express.js》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/07/27/what-is-nodejs-and-expressjs/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrUlEQVR42u3aQW4bMRAEQP//0845SLTuniEFwag9CZJssngYUj38+oqf7xfP8/fz9//9tB1x9eDh4eEdmvqrwV5N9Hkq+dSf/3M+Zzw8PLzbvKRMtxX41eSeR88XKNp48PDw8D6AlxfudiGS7+Ph4eH9Dl5b6PPX7Rzw8PDw3slrA4KElAOSreJ61oKHh4fX/W3URfqc11f6e3h4eHjrrnperJMAdxZPfC8ePDw8vBu8TXNrH7/Olq8dEQ8PD+89vH1Bb0+27TaTXzLAw8PDu8E71cRq4+B8k2gXokhW8PDw8Ea8U4FCuxBt8yxfVjw8PLx7vHYSqzi1HPH5/QNdOzw8PLwFLynE7VTagr4PI37o7+Hh4eEd4u1L8CzwvXF3rIgk8PDw8I7y8gK9vwqQBxAHlhgPDw/vEC85KCeNsfao3W4Jw+XAw8PDu8bLJzQLamdh8ax59tf7eHh4eBd4m6Nw26zKD+KbI/XwBwUeHh7eOqHNS39y8G2Hz0ccjoKHh4e35s2aUkXbPmDMSFEggoeHh3eUN7tilUe37Yaxudr1n9d4eHh4F3htwZ0dnfOLqjksOYjj4eHh3eDlG0O+DeRBbdtgq9l4eHh4F3ibspu0ytpm//7SVX0BCw8PD2/N21wsmLHbMDe/goCHh4d3j1esQXBoPhsHz5pn0UTx8PDw1rxZQW9heVsrpx74rYCHh4c34rXH6zyubePdumvXuvHw8PAWvHuNqPxSVH6grz/Fw8PDu8Cb1dhkk8jj4HZZ6zACDw8P7wJv05pK/nZ2FSBZiChSwcPDw7vG218IaCvzqV3rh+M+Hh4e3gfwZq2vZMnyKKE4XuPh4eF9AG8fm+bbwyy2wMPDw3sP7/ZVqs1Vhk3bDA8PD+8Gb/aDv40t8pZYHTfsHzw8PLyU9weiH5xx7wcEVwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

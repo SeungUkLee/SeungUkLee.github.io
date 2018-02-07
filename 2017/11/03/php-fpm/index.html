@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>what is php-fpm | Seunguk&#39;s Blog | Computer scientist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="web,php">
+    <meta name="description" content="php-fpm 이란 ?보통 nginx + php-fpm 이런 조합을 많이 볼 수 있습니다. nginx는 apache 처럼 웹 서버 중 하나입니다. 그렇다면 php-fpm은 무엇일까요? nginx 웹서버(정적인 html 웹문서 파일을 웹브라우저에 전송해주는 역할)만으로는 동적인 페이지 구현이 어렵다 -&amp;gt; 동적인 페이지 구현이 필요 -&amp;gt; 웹서버 이외">
+<meta name="keywords" content="web,php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="what is php-fpm">
+<meta property="og:url" content="https://seunguklee.github.io/2017/11/03/php-fpm/index.html">
+<meta property="og:site_name" content="Seunguk&#39;s Blog">
+<meta property="og:description" content="php-fpm 이란 ?보통 nginx + php-fpm 이런 조합을 많이 볼 수 있습니다. nginx는 apache 처럼 웹 서버 중 하나입니다. 그렇다면 php-fpm은 무엇일까요? nginx 웹서버(정적인 html 웹문서 파일을 웹브라우저에 전송해주는 역할)만으로는 동적인 페이지 구현이 어렵다 -&amp;gt; 동적인 페이지 구현이 필요 -&amp;gt; 웹서버 이외">
+<meta property="og:updated_time" content="2018-02-05T16:36:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="what is php-fpm">
+<meta name="twitter:description" content="php-fpm 이란 ?보통 nginx + php-fpm 이런 조합을 많이 볼 수 있습니다. nginx는 apache 처럼 웹 서버 중 하나입니다. 그렇다면 php-fpm은 무엇일까요? nginx 웹서버(정적인 html 웹문서 파일을 웹브라우저에 전송해주는 역할)만으로는 동적인 페이지 구현이 어렵다 -&amp;gt; 동적인 페이지 구현이 필요 -&amp;gt; 웹서버 이외">
+    
+        <link rel="alternate" type="application/atom+xml" title="Seunguk&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Seunguk Lee</h5>
+          <a href="mailto:lsy931106@gmail.com" title="lsy931106@gmail.com" class="mail">lsy931106@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/profile"  >
+                <i class="icon icon-lg icon-user"></i>
+                Profile
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/seunguklee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">what is php-fpm</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">what is php-fpm</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-02T15:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-11-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/php/">php</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#php-fpm-이란"><span class="post-toc-number">1.</span> <span class="post-toc-text">php-fpm 이란 ?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#FastCGI-vs-CGI"><span class="post-toc-number">2.</span> <span class="post-toc-text">FastCGI vs CGI</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-php-fpm"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">what is php-fpm</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-03 00:00:00" datetime="2017-11-02T15:00:00.000Z"  itemprop="datePublished">2017-11-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/php/">php</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="php-fpm-이란"><a href="#php-fpm-이란" class="headerlink" title="php-fpm 이란 ?"></a>php-fpm 이란 ?</h1><p>보통 nginx + php-fpm 이런 조합을 많이 볼 수 있습니다. nginx는 apache 처럼 웹 서버 중 하나입니다. 그렇다면 php-fpm은 무엇일까요?</p>
+<p>nginx 웹서버(정적인 html 웹문서 파일을 웹브라우저에 전송해주는 역할)만으로는 동적인 페이지 구현이 어렵다 -&gt; 동적인 페이지 구현이 필요 -&gt; 웹서버 이외의 외부 프로그램에서 처리하는 방법을 사용 -&gt; 웹 서버에서 요청을 받아 그 요청을 외부 프로그램에 넘겨주면, 외부 프로그램은 프로그램 파일을 읽어 html로 변환하는 단계를 거친다. 이를 CGI라고 부른다. -&gt; php-fpm도 CGI에 해당(FastCGI)</p>
+<h1 id="FastCGI-vs-CGI"><a href="#FastCGI-vs-CGI" class="headerlink" title="FastCGI vs CGI"></a>FastCGI vs CGI</h1><p>CGI : 요청할때마다 새로운 프로세스 생성</p>
+<p>FastCGI : 요청할때마다 새로운 프로세스를 생성하는 것이 아니라 이미 생성한 프로세스를 재활용하는 방법을 사용. 그래서 CGI보다 좀 더 빠른 버전이라고 할 수 있습니다.</p>
+<p>[참고 자료]</p>
+<p><a href="https://www.conory.com/note_linux/42956" target="_blank" rel="noopener"><br>https://www.conory.com/note_linux/42956<br></a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-02-05T16:36:21.000Z" itemprop="dateUpdated">2018-02-06 01:36:21</time>
+</span><br>
+
+
+        
+        URL：<a href="/2017/11/03/php-fpm/" target="_blank" rel="external">https://seunguklee.github.io/2017/11/03/php-fpm/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://seunguklee.github.io">
+            <img src="/img/avatar.jpg" alt="Seunguk Lee">
+            Seunguk Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/11/03/php-fpm/&title=《what is php-fpm》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/11/03/php-fpm/&title=《what is php-fpm》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/11/03/php-fpm/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《what is php-fpm》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/11/03/php-fpm/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/11/03/php-fpm/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/05/laravel-logic/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Laravel 작동 원리</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/03/phpstorm-shortcuts/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">PHPStrom 단축키</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        UserView：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        PageView：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Seunguk Lee &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/11/03/php-fpm/&title=《what is php-fpm》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/11/03/php-fpm/&title=《what is php-fpm》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/11/03/php-fpm/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《what is php-fpm》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/11/03/php-fpm/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/11/03/php-fpm/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3a0WrDMAwF0P7/T2ewp0FJpiulhdjHT2WkiU8KmiTr9Sqv43el1//9VuUO79+6eWFgYDyWcVyu9028f678pb7Rs+vP9oaBgbEPo367ysNS/PVzS/8AMDAwMD4QZOtgDAwMjF7A7QXodOsYGBgYaRFbCZqlgjNMKG+uxTEwMB7ISA8Gvvn5g+cbGBgYD2Ec4UobbfXUcLQrDAyMpRlnt5scFfTK3TkeAwNjB8bkSLIeiHtNvdKLxsDAWJpRD7W9Rv+8qXe9EwwMjLUZaeM+bdCn1DSUY2Bg7MBI07g0oewVutfXnL4IDAyMRRlpsTppw/XwJRIGBsbSjN6gQ2UTlRQzHRErlbIYGBjbMCZl6vzV9Jp9GBgYOzB6W6+H0Xph3BvLwMDAWJsxGbnoXZmmnsGrwcDAWJoxGXfohenec5u/CQYGxhKMdCCsXgDfNf4VhFoMDIyFGPXysp601V9B7xD09CQWAwNjUUYvgNYHMuqjFZOgj4GBsTajNG4Vtvivr5yUssFhAAYGxnKM+rZSdpoyNofGMDAwlmak5WivrdYb6YgPGDAwMBZlHOGqU+cHD5XnYmBg7MCYHAmkTbRSc7/VvMPAwNiBMUny6gMZvYZd0HrDwMDYgDEZgLgLPxn1wMDAwJiMWaRJYZp6YmBgYPSCcgpIG3mj1BADA+OxjHrLrNe3mzTg/gFgYGBswPjOJuqFblo2Y2BgLM34AZeg+ghDDagzAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

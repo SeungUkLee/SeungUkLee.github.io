@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>MVC Pattern | Seunguk&#39;s Blog | Computer scientist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="design-pattern">
+    <meta name="description" content="MVC 패턴에 대해 알아보기 이전에 SoC(관심사의 분리)에 대해 우선 알아보겠습니다. 관심사의 분리(SoC) 란?관심사의 분리란 영어로 Separation of Concerns (SoC)라고 하며 각 부문이 각자의 관심사를 갖도록 컴퓨터 프로그램을 여러 부분으로 나누는 설계 원칙이라고 할 수 있습니다. 만약 할 일 목록을 출력하는 task.php 파일이">
+<meta name="keywords" content="design-pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MVC Pattern">
+<meta property="og:url" content="https://seunguklee.github.io/2017/11/03/MVC-Pattern/index.html">
+<meta property="og:site_name" content="Seunguk&#39;s Blog">
+<meta property="og:description" content="MVC 패턴에 대해 알아보기 이전에 SoC(관심사의 분리)에 대해 우선 알아보겠습니다. 관심사의 분리(SoC) 란?관심사의 분리란 영어로 Separation of Concerns (SoC)라고 하며 각 부문이 각자의 관심사를 갖도록 컴퓨터 프로그램을 여러 부분으로 나누는 설계 원칙이라고 할 수 있습니다. 만약 할 일 목록을 출력하는 task.php 파일이">
+<meta property="og:image" content="https://seunguklee.github.io/images/image-mvc-pattern.jpg">
+<meta property="og:updated_time" content="2018-02-05T16:36:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MVC Pattern">
+<meta name="twitter:description" content="MVC 패턴에 대해 알아보기 이전에 SoC(관심사의 분리)에 대해 우선 알아보겠습니다. 관심사의 분리(SoC) 란?관심사의 분리란 영어로 Separation of Concerns (SoC)라고 하며 각 부문이 각자의 관심사를 갖도록 컴퓨터 프로그램을 여러 부분으로 나누는 설계 원칙이라고 할 수 있습니다. 만약 할 일 목록을 출력하는 task.php 파일이">
+<meta name="twitter:image" content="https://seunguklee.github.io/images/image-mvc-pattern.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Seunguk&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Seunguk Lee</h5>
+          <a href="mailto:lsy931106@gmail.com" title="lsy931106@gmail.com" class="mail">lsy931106@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/profile"  >
+                <i class="icon icon-lg icon-user"></i>
+                Profile
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/seunguklee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">MVC Pattern</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">MVC Pattern</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-02T15:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-11-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/design-pattern/">design-pattern</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#관심사의-분리-SoC-란"><span class="post-toc-number">1.</span> <span class="post-toc-text">관심사의 분리(SoC) 란?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#관심사의-분리의-장점"><span class="post-toc-number">2.</span> <span class="post-toc-text">관심사의 분리의 장점</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MVC-패턴이란"><span class="post-toc-number">3.</span> <span class="post-toc-text">MVC 패턴이란?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MVC-패턴의-장점"><span class="post-toc-number">4.</span> <span class="post-toc-text">MVC 패턴의 장점</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-MVC-Pattern"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">MVC Pattern</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-03 00:00:00" datetime="2017-11-02T15:00:00.000Z"  itemprop="datePublished">2017-11-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/design-pattern/">design-pattern</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>MVC 패턴에 대해 알아보기 이전에 SoC(관심사의 분리)에 대해 우선 알아보겠습니다.</p>
+<h1 id="관심사의-분리-SoC-란"><a href="#관심사의-분리-SoC-란" class="headerlink" title="관심사의 분리(SoC) 란?"></a>관심사의 분리(SoC) 란?</h1><p>관심사의 분리란 영어로 Separation of Concerns (SoC)라고 하며 각 부문이 각자의 관심사를 갖도록 컴퓨터 프로그램을 여러 부분으로 나누는 설계 원칙이라고 할 수 있습니다.</p>
+<p>만약 할 일 목록을 출력하는 <code>task.php</code> 파일이 있습니다. 이 파일에는 다음과 같은 괌심사가 있다고 가정을 해봅니다.</p>
+<ol>
+<li>어떤 DB를 사용할까? : MySQL? Oracle?</li>
+<li>DB 연결은 어떻게? mysql? mysqli? PDO?</li>
+<li>만약 DB연결이 안되면? error message 출력? 다른 페이지로 이동?</li>
+<li>할 일 데이터는 어떻게 가져올까? 절차지향? prepare 구문?</li>
+<li>할 일 목록을 어떻게 표현할까?</li>
+</ol>
+<p>이렇게 한꺼번에 많은 걱정을 해야 한다면 상당히 골치아픈 일입니다.</p>
+<p>관심사의 분리(SoC)는 프로그램을 관심사 별로 쪼개어 가능하면 한 번에 한 가지 걱정만 함으로써 개발의 복잡성을 줄이며 유지보수 하기 좋은 코드로 만들자는 것입니다.  </p>
+<h1 id="관심사의-분리의-장점"><a href="#관심사의-분리의-장점" class="headerlink" title="관심사의 분리의 장점"></a>관심사의 분리의 장점</h1><p>관심사의 분리가 잘 이루어 지면 다음과 같은 장점이 있습니다.</p>
+<ol>
+<li>개별 부문을 이해하기 쉽다.</li>
+<li>각 부문을 재사용할 수 있게 된다.</li>
+<li>한 부문을 수정할 때 다른 부문에 대해 자세히 알 필요가 없다.</li>
+<li>다른 부문 변화에 신경 쓰지 않아도 된다.</li>
+</ol>
+<p>관심사의 분리 기법으로 대표적으로 MVC 패턴이 있습니다. 이제 MVC 패턴에 대해 알아보겠습니다.</p>
+<h1 id="MVC-패턴이란"><a href="#MVC-패턴이란" class="headerlink" title="MVC 패턴이란?"></a>MVC 패턴이란?</h1><ul>
+<li><p>MVC는 Model(M) View(V) Controller(C) 이렇게 3가지의 구성요소로 나누는 설계 패턴입니다.</p>
+</li>
+<li><p>Model : Controller에 의해 호출되어 데이터소스에 데이터를 저장하거나, 데이터 소스에서 데이터를 가져와서 뷰가 사용할 수 있는 형태로 컨트롤러에 반환하는 역할</p>
+</li>
+<li><p>View : 컨트롤러에 의해 호출되어 클라이언트에게 응답으로 제공할 템플릿을 생성해서 컨트롤러에 반환</p>
+</li>
+<li><p>Controller : 사용자가 요청을 처리하고 응답을 되돌려주는 전체 과정을 관장합니다.</p>
+</li>
+</ul>
+<figure><br>    <a href="/images/image-mvc-pattern.jpg"><img src="/images/image-mvc-pattern.jpg"></a><br>    <figcaption style="text-align: center">그림 1. MVC Pattern</figcaption><br></figure>
+
+<p>MVC 패턴은 일반적으로 다음 [그림 1]과 같은 순서로 client 요청을 처리하게 됩니다.</p>
+<ol>
+<li>사용자의 요청을 컨트롤러가 받는다.</li>
+<li>컨트롤러가 모델에게 데이터 처리를 요청</li>
+<li>모델은 처리된 데이터를 컨트롤러에 반환</li>
+<li>컨트롤러는 모델로부터 되돌려받은 데이터를 뷰에 전달</li>
+<li>뷰는 응답을 생성하여 컨트롤러에 반환합니다.</li>
+<li>컨트롤러가 브라우저에 뷰로 부터 되돌려받은 응답을 전송</li>
+</ol>
+<h1 id="MVC-패턴의-장점"><a href="#MVC-패턴의-장점" class="headerlink" title="MVC 패턴의 장점"></a>MVC 패턴의 장점</h1><p>웹 애플리케이션을 개발할 때 MVC 패턴을 잘 적용하면 관심사의 분리(SoC)에 따른 장점을 얻게 됩니다.</p>
+<ol>
+<li>개별 부문을 이해하기 쉽다.</li>
+<li>가독성과 코드 재사용성 향상</li>
+<li>다른 부문에 대해 신경 쓸 필요가 거의 없다.</li>
+<li>유지보수와 협업이 쉬워진다.</li>
+</ol>
+<p>[참고 자료]</p>
+<p><a href="https://medium.com/@smartbosslee/%EA%B4%80%EC%8B%AC%EC%82%AC%EC%9D%98-%EB%B6%84%EB%A6%AC-separation-of-concerns-soc-8a8d09df066d" target="_blank" rel="noopener"><br>https://medium.com/@smartbosslee/%EA%B4%80%EC%8B%AC%EC%82%AC%EC%9D%98-%EB%B6%84%EB%A6%AC-separation-of-concerns-soc-8a8d09df066d<br></a></p>
+<p><a href="https://medium.com/@smartbosslee/php-%EC%98%88%EC%A0%9C%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-mvc-%ED%8C%A8%ED%84%B4-1628b47b1b04" target="_blank" rel="noopener"><br>https://medium.com/@smartbosslee/php-%EC%98%88%EC%A0%9C%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-mvc-%ED%8C%A8%ED%84%B4-1628b47b1b04<br></a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-02-05T16:36:21.000Z" itemprop="dateUpdated">2018-02-06 01:36:21</time>
+</span><br>
+
+
+        
+        URL：<a href="/2017/11/03/MVC-Pattern/" target="_blank" rel="external">https://seunguklee.github.io/2017/11/03/MVC-Pattern/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://seunguklee.github.io">
+            <img src="/img/avatar.jpg" alt="Seunguk Lee">
+            Seunguk Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design-pattern/">design-pattern</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/11/03/MVC-Pattern/&title=《MVC Pattern》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/11/03/MVC-Pattern/&title=《MVC Pattern》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/11/03/MVC-Pattern/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MVC Pattern》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/11/03/MVC-Pattern/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/11/03/MVC-Pattern/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/03/phpstorm-shortcuts/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">PHPStrom 단축키</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/03/Front-Controller-Pattern/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Front Controller Pattern</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        UserView：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        PageView：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Seunguk Lee &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/11/03/MVC-Pattern/&title=《MVC Pattern》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/11/03/MVC-Pattern/&title=《MVC Pattern》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/11/03/MVC-Pattern/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MVC Pattern》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/11/03/MVC-Pattern/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/11/03/MVC-Pattern/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aUY6DMAxF0e5/08wCWuA+G0aKc/NVtajJ4cNybH8+eB1f6/vXs+fPnrne5fPGkiFDxrKM43LxZ2pHfGxfGTJkbMA425iHSxI0rwMxD9MyZMiQUWOkh7sOrDJkyJDRZ/BDpAAZMmTI6FxiUzwp1fEX8dhdXIYMGQsy+NX0/z+/0t+QIUPGUowjXLzEn7Ykj8aSIUPGbEZnDIIMXvACHEk6b9oPMmTIGMpIw2jamCQBN301P76RIUPGBoxOOkjGLEjZLm1nxhmuDBkylmXw0nwaKDtX2TRNlCFDxmxGrTTPW4y1lPH6mR/nlCFDxjaMNHV747JKwu5pOihDhoyhDH4skgjWAi4PwTckGTJkDGXwDfrls/5Q2k3VUIYMGaMZ6ZackYZsUmg7nRaRIUPGUEbtKM+W+NMmRLylDBkyhjJqgxE8UJJ/jgt2MmTIGMroX1Nr6R3noRgrQ4aMDRi1FmNayq9dYtFLlCFDxmhGJ5l7dqiCNz6DyREZMmSMYzy1PXkdJBlNr7UyZMjYgVFrWHYaDPzC3KoaypAhYxCDBzgeoNPkr5Z6ypAhYzbjCFetxP9e4+Em95QhQ8YIRtos7FxH06ZmnBrKkCFjNIMcsdbgJKln0KS8bnDKkCFjA0ZaaOPDELVCW5qAypAhQ0Ynu+QNURK4UUYpQ4aM7Rn9cMwvscH/y5AhYwNGOkLKg2OnuP9KuU2GDBkLMlqTGmE6WBtOfaypKUOGjPUYfyElLLqEVsAzAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

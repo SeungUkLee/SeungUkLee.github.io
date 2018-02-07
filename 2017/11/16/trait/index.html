@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>trait | Seunguk&#39;s Blog | Computer scientist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="web,php">
+    <meta name="description" content="trait(트레이트)trait(트레이트)는 PHP 5.4에 도입되었는데 클래스처럼 행동하지만 보기에는 인터페이스 같아 많이 혼란스러워하는 사람이 많습니다. 우선 트레이트 둘 다면서 둘 다 아닙니다. 트레이트는 부분적으로 구현된 클래스(상수, 프로퍼티, 메서드)며 기존 PHP 클래스에 여러개 추가할 수 있습니다.트레이트는 두 가지 기능을 수행하는데 하나 는">
+<meta name="keywords" content="web,php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="trait">
+<meta property="og:url" content="https://seunguklee.github.io/2017/11/16/trait/index.html">
+<meta property="og:site_name" content="Seunguk&#39;s Blog">
+<meta property="og:description" content="trait(트레이트)trait(트레이트)는 PHP 5.4에 도입되었는데 클래스처럼 행동하지만 보기에는 인터페이스 같아 많이 혼란스러워하는 사람이 많습니다. 우선 트레이트 둘 다면서 둘 다 아닙니다. 트레이트는 부분적으로 구현된 클래스(상수, 프로퍼티, 메서드)며 기존 PHP 클래스에 여러개 추가할 수 있습니다.트레이트는 두 가지 기능을 수행하는데 하나 는">
+<meta property="og:updated_time" content="2018-02-05T16:36:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="trait">
+<meta name="twitter:description" content="trait(트레이트)trait(트레이트)는 PHP 5.4에 도입되었는데 클래스처럼 행동하지만 보기에는 인터페이스 같아 많이 혼란스러워하는 사람이 많습니다. 우선 트레이트 둘 다면서 둘 다 아닙니다. 트레이트는 부분적으로 구현된 클래스(상수, 프로퍼티, 메서드)며 기존 PHP 클래스에 여러개 추가할 수 있습니다.트레이트는 두 가지 기능을 수행하는데 하나 는">
+    
+        <link rel="alternate" type="application/atom+xml" title="Seunguk&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Seunguk Lee</h5>
+          <a href="mailto:lsy931106@gmail.com" title="lsy931106@gmail.com" class="mail">lsy931106@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/profile"  >
+                <i class="icon icon-lg icon-user"></i>
+                Profile
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/seunguklee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">trait</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">trait</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-15T15:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-11-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/php/">php</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#trait-트레이트"><span class="post-toc-number">1.</span> <span class="post-toc-text">trait(트레이트)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#왜-트레이트를-사용할까"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">왜 트레이트를 사용할까?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#트레이트-생성"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">트레이트 생성</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#트레이트-사용"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">트레이트 사용</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-trait"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">trait</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-16 00:00:00" datetime="2017-11-15T15:00:00.000Z"  itemprop="datePublished">2017-11-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/php/">php</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="trait-트레이트"><a href="#trait-트레이트" class="headerlink" title="trait(트레이트)"></a>trait(트레이트)</h1><p>trait(트레이트)는 PHP 5.4에 도입되었는데 클래스처럼 행동하지만 보기에는 인터페이스 같아 많이 혼란스러워하는 사람이 많습니다. 우선 트레이트 둘 다면서 둘 다 아닙니다. 트레이트는 부분적으로 구현된 클래스(상수, 프로퍼티, 메서드)며 기존 PHP 클래스에 여러개 추가할 수 있습니다.<br>트레이트는 <strong>두 가지</strong> 기능을 수행하는데 <strong>하나</strong> 는 인터페이스처럼 클래스가 할 수 있는 것을 나타내고 <strong>두번째</strong> 는 클래스처럼 모듈화된 구현을 제공합니다. (트레이트는 루비의 믹스인과 유사합니다.)</p>
+<h2 id="왜-트레이트를-사용할까"><a href="#왜-트레이트를-사용할까" class="headerlink" title="왜 트레이트를 사용할까?"></a>왜 트레이트를 사용할까?</h2><p>PHP도 다른 언어에서 사용하는 것처럼 상속 모델을 사용합니다. 기본적인 구현을 제공하는 일반화된 하나의 클래스와 이 클래스를 확장해 나가면서 바로 윗 부모의 구현을 상속받아 좀 더 특화된 클래스를 생성합니다(이를 <strong>상속계층</strong> 이라고 합니다). 이러한 상속 모델은 대부분 잘 작동합니다. 하지만 연관이 없는 두 PHP 클래스가 유사한 행동을 해야할 겨우 어떻게 해야할까요? 예를 들어 RetailStore(소매점) 과 Car(자동차) 클래스가 있다고 합시다. 이 둘의 클래스는 전혀 연관이 없는 클래스입니다. 그러므로 이 두 클래스는 상속 계층상 공통의 부모를 공유하지 않습니다. 하지만 두 클래스 모두 지도 위에 위도와 경도(위치정보)를 표시해야 된다고 합시다. 이때 바로 트레이트를 사용합니다. <strong>트레이트를 이용하면 모듈화된 구현을 서로 관련 없는 클래스들에 주입할 수 있습니다.</strong>  트레이트의 사용으로 코드 재사용성을 높일 수 있는 장점도 있습니다.</p>
+<p>다음은 위의 문제점이 생겼다고 가정하고 트레이트를 사용을 했을 경우와 그렇지 않은 경우를 살펴 봅시다.</p>
+<ol>
+<li><p>RetailStore 와 Car 클래스가 확장할 공통의 부모 클래스 Geocodable을 만든다. (트레이트 사용 x)<br>결론부터 말씀드리자면 이 방법은 결코 좋은 해결책이 아닙니다. 왜냐하면 서로 관련이 없는 두 클래스가 어느 쪽의 상속 계층에도 속하지 않는 공통의 조상을 공유하였기 때문입니다.</p>
+</li>
+<li><p>Geocodable 인터페이스를 만들어 위치정보 기능을 구현할 메서드를 정의. (트레이트 사용 x)<br>RetailStore 와 Car 클래스 모두 Geocodable을 구현 할 수 있습니다. 1번 방법과 달리  와 Car 이 두 클래스 모두 자연스러운 상속 계층을 유지할 수 있어 좋은 해결책이 될 수 있습니다. 하지만 두 클래스에 같은 지리정보 기능이 중복되는 단점이 있습니다.</p>
+</li>
+<li><p>위치정보 메서드를 구현한 Geocodable 트레이트 생성 (트레이트 사용 o)<br>RetailStore 와 Car 두 클래스 모두에 Geocodable 트레이트를 넣을 수 있어 클래스의 자연적인 상속 계층이 망가지지 않는 장점이 있어 최고의 해결책이라고 할 수 있습니다.</p>
+</li>
+</ol>
+<p>위 문제점은 상속과 인터페이스로 최고의 해결책이 될 수 없으며 트레이트를 이용하여 해결할 수 있습니다.</p>
+<h2 id="트레이트-생성"><a href="#트레이트-생성" class="headerlink" title="트레이트 생성"></a>트레이트 생성</h2><p>Geocodable 트레이트는 다음과 같이 구현할 수 있습니다.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">trait Geocodable &#123;</span><br><span class="line">    /* 여기에 트레이트를 구현하시면 됩니다. **<span class="regexp">/</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    protected $address;</span></span><br><span class="line"><span class="regexp">    protected $geocoder;</span></span><br><span class="line"><span class="regexp">    protected $geocoderResult;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    public function setGeocoder($geocoder) &#123;</span></span><br><span class="line"><span class="regexp">        /</span>* .... *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    public function setAddress($address) &#123;</span></span><br><span class="line"><span class="regexp">        /</span>* .... *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    public function getLatitude() &#123;</span></span><br><span class="line"><span class="regexp">        /</span>* .... *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">    public function getLongtitude() &#123;</span></span><br><span class="line"><span class="regexp">        /</span>* .... *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    protected function geocodeAddress() &#123;</span></span><br><span class="line"><span class="regexp">        /</span>* .... *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ .....</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>다음과 같이 Geocodable 트레이트는 위치정보 기능을 구현하기 위해 필요한 속성과 메서드를 정의하면 됩니다.</p>
+<h2 id="트레이트-사용"><a href="#트레이트-사용" class="headerlink" title="트레이트 사용"></a>트레이트 사용</h2><p>PHP 트레이트는 <code>use</code> 키워드로 간단하게 사용할 수 있습니다. 다음과 같이 PHP 클래스 정의 안에 코드를 추가하시면 됩니다.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RetailStore</span></span></span><br><span class="line">&#123;</span><br><span class="line">    use Geocodable;</span><br><span class="line"></span><br><span class="line">    /* 여기에 클래스를 구현하시면 됩니다. *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>namespace도 트레이트와 마찬가지로 <code>use</code> 키워드를 사용하여 import하지만 import가 되는 위치가 다릅니다. namespace, class, interface는 <strong>클래스 정의 밖에</strong> import하는 반면에 트레이트는 <strong>클래스 정의 안에서</strong> import합니다.</p>
+<p>이제 각 RetailStore 인스턴스는 Geocodable 트레이트가 제공하는 속성과 메서드들을 다음과 같이 사용 할 수 있습니다.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$store = new RetailStore();</span><br><span class="line">$store-&gt;setAddress();</span><br><span class="line">$store-&gt;setGeocoder();</span><br><span class="line">$latitude = $store-&gt;getLatitude();</span><br><span class="line">$longtitude = $store-&gt;getLongtitude();</span><br><span class="line"></span><br><span class="line">/<span class="regexp">/ ...</span></span><br></pre></td></tr></table></figure>
+<p>PHP 인터프린터는 컴파일 시에 트레이트를 복사해서 클래스 정의 안에 붙여넣습니다. 그리고 이 과정에서 발생하는 비호환성을 방지하지 않습니다. 트레이트가 트레이트 내부에 정의되어 있지 않은 클래스 속성이나 메서드를 사용한다면 트레이트를 사용하는 클래스 안에 그 속성이나 메서드가 반드시 존재해야합니다.</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-02-05T16:36:21.000Z" itemprop="dateUpdated">2018-02-06 01:36:21</time>
+</span><br>
+
+
+        
+        URL：<a href="/2017/11/16/trait/" target="_blank" rel="external">https://seunguklee.github.io/2017/11/16/trait/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://seunguklee.github.io">
+            <img src="/img/avatar.jpg" alt="Seunguk Lee">
+            Seunguk Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/11/16/trait/&title=《trait》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/11/16/trait/&title=《trait》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/11/16/trait/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《trait》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/11/16/trait/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/11/16/trait/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/24/php-overloading/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">PHP Overloading</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/15/git-flow/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">git flow tutorial</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        UserView：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        PageView：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Seunguk Lee &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/11/16/trait/&title=《trait》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/11/16/trait/&title=《trait》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/11/16/trait/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《trait》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/11/16/trait/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/11/16/trait/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3a0Y7DIAxE0fz/T7OvK7XAjJ20xb48VVG2cFjJxdjXJY/xMl6fz97//0Sf5XpiwIAB41jGWI71svQp1+8r887egQEDRh/G7Ktn77ghWAnEepiGAQMGjDUj9lnZCBgwYMD4DCP25OcCLgwYMH6SoQe+Weh0D5Ffy8VhwIBxIEO/LPv850fqGzBgwDiKMcyxhmXKCXqQfTMXDBgwSjNibRD60VBZnJSgKgVRGDBgFGWMxHCTT72cud6mN09gwIBRmuEmje61fiZxteeCAQNGA4byRbdNGdome49hwIBRgpEpVbrXZPpC7YQZBgwYDRixZq/8PV+mbBCsr8KAAeNYRqZtyy1qus1e0k8CDBgw2jDcResRT/+GYLCGAQNGG4ae0OqXa08cNzclARgwYLRkPN0woYTmTciGAQNGaUZmuEVKt2CQnxEGDBg1GG7A1YOpm5rGdhcGDBgdGJkY7CaoejBVjpibVBYGDBilGalrLzPFdZNYu+UCBgwY5Rju0u/6K7dRY3M0hAEDRhuGElKVFFd/J3YAvfK/DDBgwDiQoTdAKMlq/lBoXOHBgAGjKGOYQ2e726EcJTf/BxgwYBRluGWA/OW+3i7mlh9gwIBRm5EJsrFigL5lRoINAwaMBgw9uY0dMTOtGEazBQwYMGAIS48FULfBwq5vwIABozEj1ioRS4YfORrCgAHjKIbbNnHXsdItkcKAAaMnI9bioDeBuWWG/CbCgAGjEOMPpcmyUCvqyWwAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

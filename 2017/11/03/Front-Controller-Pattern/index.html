@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Front Controller Pattern | Seunguk&#39;s Blog | Computer scientist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="design-pattern">
+    <meta name="description" content="웹 개발에 있어 대표적으로 권장하지 않는 방식이 있습니다.  HTML(표현)과 PHP(비즈니스 로직)를 한 파일에 섞어 사용하는 방식 마치 HTML처럼 웹페이지별로 PHP 파일이 존재하고 이를 웹 브라우저로 접근하는 방식  1번과 같은 방식은 MVC 패턴을 이용하여 더 나은 방식으로 개선할 수 있습니다. 그렇다면 2번은 어떻게 하면 개선할 수 있을까요?2번">
+<meta name="keywords" content="design-pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Front Controller Pattern">
+<meta property="og:url" content="https://seunguklee.github.io/2017/11/03/Front-Controller-Pattern/index.html">
+<meta property="og:site_name" content="Seunguk&#39;s Blog">
+<meta property="og:description" content="웹 개발에 있어 대표적으로 권장하지 않는 방식이 있습니다.  HTML(표현)과 PHP(비즈니스 로직)를 한 파일에 섞어 사용하는 방식 마치 HTML처럼 웹페이지별로 PHP 파일이 존재하고 이를 웹 브라우저로 접근하는 방식  1번과 같은 방식은 MVC 패턴을 이용하여 더 나은 방식으로 개선할 수 있습니다. 그렇다면 2번은 어떻게 하면 개선할 수 있을까요?2번">
+<meta property="og:image" content="https://seunguklee.github.io/images/image-front-controller-pattern.jpg">
+<meta property="og:updated_time" content="2018-02-05T16:36:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Front Controller Pattern">
+<meta name="twitter:description" content="웹 개발에 있어 대표적으로 권장하지 않는 방식이 있습니다.  HTML(표현)과 PHP(비즈니스 로직)를 한 파일에 섞어 사용하는 방식 마치 HTML처럼 웹페이지별로 PHP 파일이 존재하고 이를 웹 브라우저로 접근하는 방식  1번과 같은 방식은 MVC 패턴을 이용하여 더 나은 방식으로 개선할 수 있습니다. 그렇다면 2번은 어떻게 하면 개선할 수 있을까요?2번">
+<meta name="twitter:image" content="https://seunguklee.github.io/images/image-front-controller-pattern.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Seunguk&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Seunguk Lee</h5>
+          <a href="mailto:lsy931106@gmail.com" title="lsy931106@gmail.com" class="mail">lsy931106@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/profile"  >
+                <i class="icon icon-lg icon-user"></i>
+                Profile
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/seunguklee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Front Controller Pattern</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Front Controller Pattern</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-02T15:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-11-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/design-pattern/">design-pattern</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Front-Controller-패턴이란"><span class="post-toc-number">1.</span> <span class="post-toc-text">Front Controller 패턴이란?</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Front-Controller-Pattern"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Front Controller Pattern</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-03 00:00:00" datetime="2017-11-02T15:00:00.000Z"  itemprop="datePublished">2017-11-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/design-pattern/">design-pattern</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>웹 개발에 있어 대표적으로 권장하지 않는 방식이 있습니다.</p>
+<ol>
+<li>HTML(표현)과 PHP(비즈니스 로직)를 한 파일에 섞어 사용하는 방식</li>
+<li>마치 HTML처럼 웹페이지별로 PHP 파일이 존재하고 이를 웹 브라우저로 접근하는 방식</li>
+</ol>
+<p>1번과 같은 방식은 MVC 패턴을 이용하여 더 나은 방식으로 개선할 수 있습니다. 그렇다면 2번은 어떻게 하면 개선할 수 있을까요?<br>2번과 같은 방식은 Front Controller 패턴을 이용하여 개선할 수 있습니다. (Front Controller는 라라벨에서 Router라고 생각하시면 됩니다.)</p>
+<h1 id="Front-Controller-패턴이란"><a href="#Front-Controller-패턴이란" class="headerlink" title="Front Controller 패턴이란?"></a>Front Controller 패턴이란?</h1><p>Front Contrller 패턴은 웹 애플리케이션으로 오는 모든 사용자의 요청을 처리해주는 하나의 진입점을 두는 패턴입니다. 흔히 여러 웹 프레임워크에서 MVC 패턴과 함께 사용됩니다.(ex. Laravel Router)</p>
+<figure><br>    <a href="/images/image-front-controller-pattern.jpg"><img src="/images/image-front-controller-pattern.jpg"></a><br>    <figcaption style="text-align: center">그림 1. Front Controller Pattern</figcaption><br></figure>
+
+
+<p>Front Controller 패턴은 다음 [그림 1]과 같은 순서로 요청을 처리합니다.</p>
+<ol>
+<li>사용자의 요청을 front controller가 받는다.</li>
+<li>front controller는 사용자의 요청을 분석하여 해당하는 컨트롤러에게 처리를 넘긴다.</li>
+<li>컨트롤러가 모델에게 데이터 처리를 요청</li>
+<li>모델은 처리된 데이터를 컨트롤러에 반환</li>
+<li>컨트롤러는 모델로부터 되돌려받은 데이터를 뷰에 전달</li>
+<li>뷰는 응답을 생성하여 컨트롤러에 반환합니다.</li>
+<li>컨트롤러가 브라우저에 뷰로 부터 되돌려받은 응답을 전송</li>
+</ol>
+<p>[참고 자료]</p>
+<p><a href="https://medium.com/@smartbosslee/php-%EC%98%88%EC%A0%9C%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%ED%94%84%EB%9F%B0%ED%8A%B8-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-front-controller-%ED%8C%A8%ED%84%B4-c00e9d222963" target="_blank" rel="noopener"><br>https://medium.com/@smartbosslee/php-%EC%98%88%EC%A0%9C%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%ED%94%84%EB%9F%B0%ED%8A%B8-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-front-controller-%ED%8C%A8%ED%84%B4-c00e9d222963<br></a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-02-05T16:36:21.000Z" itemprop="dateUpdated">2018-02-06 01:36:21</time>
+</span><br>
+
+
+        
+        URL：<a href="/2017/11/03/Front-Controller-Pattern/" target="_blank" rel="external">https://seunguklee.github.io/2017/11/03/Front-Controller-Pattern/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://seunguklee.github.io">
+            <img src="/img/avatar.jpg" alt="Seunguk Lee">
+            Seunguk Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design-pattern/">design-pattern</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/11/03/Front-Controller-Pattern/&title=《Front Controller Pattern》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/11/03/Front-Controller-Pattern/&title=《Front Controller Pattern》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/11/03/Front-Controller-Pattern/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Front Controller Pattern》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/11/03/Front-Controller-Pattern/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/11/03/Front-Controller-Pattern/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/03/MVC-Pattern/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">MVC Pattern</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/07/28/composer/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">컴포저</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        UserView：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        PageView：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Seunguk Lee &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/11/03/Front-Controller-Pattern/&title=《Front Controller Pattern》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/11/03/Front-Controller-Pattern/&title=《Front Controller Pattern》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/11/03/Front-Controller-Pattern/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Front Controller Pattern》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/11/03/Front-Controller-Pattern/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/11/03/Front-Controller-Pattern/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3awW7bQAwE0Pz/T6dATy0SOzPkrusCTycjtiU9B9ilhvz4iI/P38efr5Pj63cfnS2/1seNAw8PD2906/ktPr/Y8zM8wjz/fP7uN3eFh4eHd42XbAYzTLK4P98e2vvBw8PDex9evtBvSvbnV8TDw8P7v3izBCAB5KU8Hh4e3vvw9g//SdjahrYvzVrw8PDwujSgboD929fX+3t4eHh4o656suy2S3by+c2wwl/nwcPDw7vAy0vhNmDNF/TZ2YoNAw8PD+8obzZitd8e9tVv9ACAh4eH9xLebCAgAW/W6nw7eVhM4+Hh4R3iJbHpviU2O9ss2qgTaDw8PLwLvGiwKSiO9wV0G1Lg4eHhvYaXIGfL9D5vzov+b54b8PDw8A7x6l7ZmpfHGclI66pTh4eHhzfizZbgTfGdBxD5YEE9BoGHh4e34CVhQb7SJtS2VdZ+Fw8PD+82L29TtXHDbKuYldc/XB0PDw/vKG/WXsq3jVO3nhfuP/zf8PDw8C7w2mZYHjTkIwUzarHj4eHh4a15m6Z+u2FsIoa2t4WHh4d3g9cW08minwcTbdSbt8Tw8PDwbvNmowCzttnZVlkxjIWHh4d3iJd/oQ0aiv5b0EI78MSAh4eHd+FpfXOj7Q21G8zmJ8bDw8O7zTvVGJs1/tvIOIqS8fDw8C7wNiNT+cZw9rttCIKHh4d3lte2l/ISOW+S5X/J2Xh4eHi3eUlhmrx7IwJeHXh4eHhHeZ/lkZ/hbCw7LMHx8PDwLvA2wURbNCeXnBX3dYCLh4eHt+adGh1og+Czse/1yQg8PDy8L7zZaNRsyU4aWpvModjT8PDw8N6Gt393H3Dg4eHhvQNv1hibbQAt7OE58fDw8K7x2gGpfVq8CT6KshsPDw/vAq9dxNtyuf0JckZUUuPh4eGd5P0C4atf9Ns6vLkAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

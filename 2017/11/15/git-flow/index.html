@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>git flow tutorial | Seunguk&#39;s Blog | Computer scientist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="git">
+    <meta name="description" content="gitflow란?Vincent Driessen’s의 branching model을 적용하여 고수준으로 저장소를 관리하기 위한 Git 확장 콜렉션이라고 할 수 있습니다.Vincent의 branching model은 “feature - develop - release - hotfixes - master” 단계로 branch를 나눠서 코드를 관리하는 전략입니다.">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git flow tutorial">
+<meta property="og:url" content="https://seunguklee.github.io/2017/11/15/git-flow/index.html">
+<meta property="og:site_name" content="Seunguk&#39;s Blog">
+<meta property="og:description" content="gitflow란?Vincent Driessen’s의 branching model을 적용하여 고수준으로 저장소를 관리하기 위한 Git 확장 콜렉션이라고 할 수 있습니다.Vincent의 branching model은 “feature - develop - release - hotfixes - master” 단계로 branch를 나눠서 코드를 관리하는 전략입니다.">
+<meta property="og:image" content="https://seunguklee.github.io/images/DevOps/Git/image-git-flow-tutorial-1.png">
+<meta property="og:image" content="https://seunguklee.github.io/images/DevOps/Git/image-git-flow-tutorial-2.png">
+<meta property="og:image" content="https://seunguklee.github.io/images/DevOps/Git/image-git-flow-tutorial-3.png">
+<meta property="og:image" content="https://seunguklee.github.io/images/DevOps/Git/image-git-flow-tutorial-4.png">
+<meta property="og:image" content="https://seunguklee.github.io/images/DevOps/Git/image-git-flow-tutorial-5.png">
+<meta property="og:image" content="https://seunguklee.github.io/images/DevOps/Git/image-git-flow-tutorial-6.png">
+<meta property="og:image" content="https://seunguklee.github.io/images/DevOps/Git/image-git-flow-tutorial-7.png">
+<meta property="og:image" content="https://seunguklee.github.io/images/DevOps/Git/image-git-flow-tutorial-8.png">
+<meta property="og:image" content="https://seunguklee.github.io/images/DevOps/Git/image-git-flow-tutorial-9.png">
+<meta property="og:image" content="https://seunguklee.github.io/images/DevOps/Git/image-git-flow-tutorial-10.png">
+<meta property="og:updated_time" content="2018-02-05T16:36:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git flow tutorial">
+<meta name="twitter:description" content="gitflow란?Vincent Driessen’s의 branching model을 적용하여 고수준으로 저장소를 관리하기 위한 Git 확장 콜렉션이라고 할 수 있습니다.Vincent의 branching model은 “feature - develop - release - hotfixes - master” 단계로 branch를 나눠서 코드를 관리하는 전략입니다.">
+<meta name="twitter:image" content="https://seunguklee.github.io/images/DevOps/Git/image-git-flow-tutorial-1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Seunguk&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Seunguk Lee</h5>
+          <a href="mailto:lsy931106@gmail.com" title="lsy931106@gmail.com" class="mail">lsy931106@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/profile"  >
+                <i class="icon icon-lg icon-user"></i>
+                Profile
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/seunguklee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git flow tutorial</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">git flow tutorial</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-14T15:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-11-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/git/">git</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gitflow란"><span class="post-toc-number">1.</span> <span class="post-toc-text">gitflow란?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gitflow-사용하기"><span class="post-toc-number">2.</span> <span class="post-toc-text">gitflow 사용하기</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-git-flow"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">git flow tutorial</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-15 00:00:00" datetime="2017-11-14T15:00:00.000Z"  itemprop="datePublished">2017-11-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/git/">git</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="gitflow란"><a href="#gitflow란" class="headerlink" title="gitflow란?"></a>gitflow란?</h1><p>Vincent Driessen’s의 branching model을 적용하여 고수준으로 저장소를 관리하기 위한 Git 확장 콜렉션이라고 할 수 있습니다.<br>Vincent의 branching model은 “feature - develop - release - hotfixes - master” 단계로 branch를 나눠서 코드를 관리하는 전략입니다. 이렇게 많은 프로세스를 나눠서 작업을 하기에 여간 귀찮은 일이 아니다. 그래서 사용자가 쉽게 접근하여 사용할 수 있도록 확장 명령어 셋을 제공하는 것이 gitflow입니다.</p>
+<h1 id="gitflow-사용하기"><a href="#gitflow-사용하기" class="headerlink" title="gitflow 사용하기"></a>gitflow 사용하기</h1><p>우선 gitflow을 사용하려면 다음과 같이 <code>$git flow init</code> 명령어를 사용합니다.</p>
+<figure><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-1.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-1.png"></a><br>    <figcaption style="text-align: center">그림 1. git flow init </figcaption><br></figure>
+
+<p>그러면 다음 <strong>그림1</strong> 과 같이 프로세스 별로 사용할 branch 명을 입력하라는 메시지가 뜹니다. 기본값으로 사용하고 싶으면 그냥 Enter치시면 됩니다. 그러면 자동으로 develop branch가 생깁니다. 기본적으로 develop에서 개발하고, master로 release하는 방식입니다. gitflow는 기본적으로 master, develop를 제공하며 gitflow에서 제공하는 branch는 총 6종류 입니다.</p>
+<ol>
+<li>master : 최종 릴리즈한 안정화 버전</li>
+<li>develop : 다음 릴리즈를 위해 개발중인 최신 버전</li>
+<li>feature : 특정 기능 개발을 위한 branch</li>
+<li>release : 릴리즈 점검을 위한 branch</li>
+<li>hotfix : 긴급 버그 픽스를 위한 branch</li>
+<li>support : 버전 호환성 문제 처리를 위한 branch</li>
+</ol>
+<p>특정한 기능을 개발하기 위해서는 feature branch를 이용합니다.<br><code>$git flow feature start [이름]</code></p>
+<p>이렇게 하면 새로운 기능을 개발하기 위한 branch가 <code>feature/이름</code>이름으로 만들어지면 해당 branch로 자동으로 checkout 됩니다.</p>
+<figure><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-2.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-2.png"></a><br>    <figcaption style="text-align: center">그림 2. git flow feature start [이름] </figcaption><br></figure>
+
+<p>간단하게 <code>hello.txt</code>를 생성하고 <code>hello1</code> 이라는 코드를 작성을 했다고 가정을 해봅시다. 코드 작성 후 변경 사항을 stage에 commit을 합니다.</p>
+<figure class="half"><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-3.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-3.png"></a><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-4.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-4.png"></a><br>    <figcaption style="text-align: center">그림 3,4. 코드 작성 및 git commit</figcaption><br></figure>
+
+
+
+<p>기능 개발이 완료되면 다음 명령어로 git flow에 알려줍니다.<br><code>$git flow feature finish [이름]</code><br>이 명령어는 다음과 같은 순서로 동작합니다.</p>
+<ol>
+<li>git flow는 develop branch로 checkout 한다.</li>
+<li>feature branch의 변경 내용을 자동으로 develop branch에 merge한다.</li>
+<li>작업이 끝난 feature branch를 삭제한다.</li>
+</ol>
+<figure><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-5.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-5.png"></a><br>    <figcaption style="text-align: center">그림 5. git flow feature finish [이름] </figcaption><br></figure>
+
+
+<p>다음과 같이 변경된 내용을 확인 할 수 있습니다.</p>
+<p>이번에는 release를 위해 release branch를 생성을 합니다.<br><code>$git flow release start [이름]</code></p>
+<figure><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-6.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-6.png"></a><br>    <figcaption style="text-align: center">그림 6. git flow release start [이름] </figcaption><br></figure>
+
+<p>release start를 하면 develop branch의 내용을 base로 <code>release/[이름]</code>의 이름을 갖는 새로운 branch를 하나 만들어서 checkout 하게 됩니다.</p>
+<p>release branch는 보통 릴리즈 점검을 위해 간단한 버그를 수정하는 등의 작업을 목적으로 사용하며 점검이 끝났으면 다음과 같이 finish 명령어를 사용하시면 됩니다.<br><code>$git flow release finish [이름]</code><br>이 명령어는 다음과 같은 순서로 동작합니다.</p>
+<ol>
+<li>release 브랜치의 코드를 master branch에 merge</li>
+<li>release의 이름으로 태그 등록</li>
+<li>릴리즈를 develop branch로 재병합(back-merge)</li>
+<li>release branch를 삭제</li>
+</ol>
+<figure class="third"><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-7.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-7.png"></a><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-8.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-8.png"></a><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-9.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-9.png"></a><br>    <figcaption style="text-align: center">그림 7,8,9. git flow release finish [이름]</figcaption><br></figure>
+
+
+<p>마지막으로 모든 release 작업이 끝났으면 pull 명령으로 원격 저장소에 코드를 저장할 수 있습니다.</p>
+<p><code>$git lg</code> 명령으로 그 동안 작업 했던 것들을 볼 수 있습니다.</p>
+<figure><br>    <a href="/images/DevOps/Git/image-git-flow-tutorial-10.png"><img src="/images/DevOps/Git/image-git-flow-tutorial-10.png"></a><br>    <figcaption style="text-align: center">그림 10. git lg </figcaption><br></figure>
+
+<p>[참고 자료]</p>
+<p><a href="http://huns.me/development/1131" target="_blank" rel="noopener"><br>http://huns.me/development/1131<br></a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-02-05T16:36:21.000Z" itemprop="dateUpdated">2018-02-06 01:36:21</time>
+</span><br>
+
+
+        
+        URL：<a href="/2017/11/15/git-flow/" target="_blank" rel="external">https://seunguklee.github.io/2017/11/15/git-flow/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://seunguklee.github.io">
+            <img src="/img/avatar.jpg" alt="Seunguk Lee">
+            Seunguk Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/11/15/git-flow/&title=《git flow tutorial》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/11/15/git-flow/&title=《git flow tutorial》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/11/15/git-flow/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git flow tutorial》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/11/15/git-flow/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/11/15/git-flow/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/16/trait/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">trait</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/06/laravel-view/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Laravel View&amp;Blade</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        UserView：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        PageView：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Seunguk Lee &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/11/15/git-flow/&title=《git flow tutorial》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/11/15/git-flow/&title=《git flow tutorial》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/11/15/git-flow/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git flow tutorial》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/11/15/git-flow/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/11/15/git-flow/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aQW4CMQwF0N7/0nTbChG+7QFpkpcVKtOJHwvLTvzzE6/Hn7X+y/O3z0/mu1y8MDAwbst4LNerZ/Ig1tT1+5PYMDAwzmG8Cmv9TB7uOtAkib+JGQMDA2O5WTU5JhgMDAyMaxNuXjImhSMGBgbGpInNi8Lq277ai2NgYNyQkZ+6f//zR+43MDAwbsV4FNfk3vDaSP7tgoGBsTWjt021mMsP7CbxYGBgnMzIG87qgNf6J0hiKOgxMDBuzsiDqA6KVS8Pqtecb/bFwMDYmlEdqqim2slIR/OkEAMD4+aMPL1WE2Le1k6GMzAwME5g5AdqnxiqqLas5aoWAwNjI0a1jMu/rSbiXlrHwMDYlZEnu567evRfxWBgYJzAmFw65oXg/H8LcWJgYGzK6B30947b8jeMRiswMDA2YuQbJ4dr+S6FUi94DwYGxgmMeWPZG8uYt8oYGBjnMKoXlr0EXT0+K/w0GBgYWzN6R2N5F5mUg/OGGQMD4wRGL+hPXCFMfj4MDIwTGNVrg6TF7Q1SVFM5BgbGaYzJYFaeZHuHa2+aWAwMjE0Zj+LKxyC+0/RGdSUGBsbNGb00l19P5lcL+ZTXKGVjYGDclpEk2byZ7CXo6ogGBgbGmYzJUVevuc0vAMq9OAYGxvGMPKDqeFlzTgQDAwMjLv7ysq/6TDRAhoGBcQAjT53XDpD1UjMGBsZpjLx1nFRlPd7Fl5oYGBj3Y/wCHae8KlSHBJkAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

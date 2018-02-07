@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Laravel Routing | Seunguk&#39;s Blog | Computer scientist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="web,php,laravel">
+    <meta name="description" content="URL라우팅에 대해 자세히 알아보기전에 우선 URL에 대해서 알아보겠습니다. 우리는 어떤 웹 페이지에 접속하기 위해 웹 브라우저에 URL을 입력합니다. 예를 들어 foo.com/posts 또는 foo.com/posts.php 처럼 확장자를 가진 것도 있습니다. URL을 구성하는 요소는 다음과 같습니다.   http://www.example.com:80/ar">
+<meta name="keywords" content="web,php,laravel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laravel Routing">
+<meta property="og:url" content="https://seunguklee.github.io/2017/11/06/laravel-routing/index.html">
+<meta property="og:site_name" content="Seunguk&#39;s Blog">
+<meta property="og:description" content="URL라우팅에 대해 자세히 알아보기전에 우선 URL에 대해서 알아보겠습니다. 우리는 어떤 웹 페이지에 접속하기 위해 웹 브라우저에 URL을 입력합니다. 예를 들어 foo.com/posts 또는 foo.com/posts.php 처럼 확장자를 가진 것도 있습니다. URL을 구성하는 요소는 다음과 같습니다.   http://www.example.com:80/ar">
+<meta property="og:updated_time" content="2018-02-05T16:36:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Laravel Routing">
+<meta name="twitter:description" content="URL라우팅에 대해 자세히 알아보기전에 우선 URL에 대해서 알아보겠습니다. 우리는 어떤 웹 페이지에 접속하기 위해 웹 브라우저에 URL을 입력합니다. 예를 들어 foo.com/posts 또는 foo.com/posts.php 처럼 확장자를 가진 것도 있습니다. URL을 구성하는 요소는 다음과 같습니다.   http://www.example.com:80/ar">
+    
+        <link rel="alternate" type="application/atom+xml" title="Seunguk&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Seunguk Lee</h5>
+          <a href="mailto:lsy931106@gmail.com" title="lsy931106@gmail.com" class="mail">lsy931106@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/profile"  >
+                <i class="icon icon-lg icon-user"></i>
+                Profile
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/seunguklee" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Laravel Routing</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Laravel Routing</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-05T15:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-11-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/php/">php</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/php/laravel/">laravel</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#URL"><span class="post-toc-number">1.</span> <span class="post-toc-text">URL</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Routing-이란"><span class="post-toc-number">2.</span> <span class="post-toc-text">Routing 이란?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#URL-파라미터"><span class="post-toc-number">3.</span> <span class="post-toc-text">URL 파라미터</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Routing-Name"><span class="post-toc-number">4.</span> <span class="post-toc-text">Routing Name</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Routing-Override"><span class="post-toc-number">5.</span> <span class="post-toc-text">Routing Override</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-laravel-routing"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Laravel Routing</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-06 00:00:00" datetime="2017-11-05T15:00:00.000Z"  itemprop="datePublished">2017-11-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/php/">php</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/php/laravel/">laravel</a></li></ul></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h1><p>라우팅에 대해 자세히 알아보기전에 우선 URL에 대해서 알아보겠습니다. 우리는 어떤 웹 페이지에 접속하기 위해 웹 브라우저에 URL을 입력합니다. 예를 들어 foo.com/posts 또는 foo.com/posts.php 처럼 확장자를 가진 것도 있습니다.</p>
+<p>URL을 구성하는 요소는 다음과 같습니다.</p>
+<pre><code>  http://www.example.com:80/articles?page=2&amp;filter=no_comment#comment-21
+</code></pre>
+
+<ol>
+<li>http : URL 스킴(URL scheme)<ul>
+<li>프로토콜 이름</li>
+</ul>
+</li>
+<li>www.example.com<ul>
+<li>www는 호스트 이름이며 example.com은 도메인 이름이다.</li>
+</ul>
+</li>
+<li>80 : 포트 번호<ul>
+<li>웹 서버의 기본 포트는 80이다. 80번 포트로 요청할 경우 이를 생략 할 수도 있다.</li>
+</ul>
+</li>
+<li>articles : 경로(Path)<ul>
+<li>경로는 www.example.com 이름을 가진 웹 서버 루트 아래에 존재하는 리소스 주소다. 정적 파일일 수도 있고, 동적 파일일 수도 있다.</li>
+</ul>
+</li>
+<li>page=2&amp;filter=no_comment : 쿼리 스트링<ul>
+<li>함수의 인자라고 생각하자. 웹 애플리케이션에게 요청의 세부 사항을 말해야 할 때 필요하다.</li>
+</ul>
+</li>
+<li>comment-21 : URL 조각 (URL fragment)<ul>
+<li>웹 서버에서 받은 응답을 웹 브라우저가 렌더링하면서 URL 조각에 의해 해당하는 화면 위치로 이동된다.</li>
+</ul>
+</li>
+</ol>
+<h1 id="Routing-이란"><a href="#Routing-이란" class="headerlink" title="Routing 이란?"></a>Routing 이란?</h1><p>Routing은 HTTP 요청의 메서드와 URL을 보고, 적절한 처리 로직으로 연결시키는 행위를 말합니다.<br>모든 클라이언트 HTTP 요청을 한 곳으로 모으고, 그 시작점에서 적합한 처리 로직에게 할당함으로써 URL과 컨트롤러 로직을 분리 해줍니다.</p>
+<p>라라벨 프로젝트를 생성하고 <code>routes/web.php</code> 파일을 열어봅시다.(라라벨 5.3 기준)</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/'</span>, function() &#123;</span><br><span class="line">  <span class="keyword">return</span> view(<span class="string">'welcome'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>이 코드를 살펴보면 <code>Route::get()</code>은 get메서드에 대한 요청을 받는다는 의미입니다.<br>get메서드로 <code>/</code> 요청이 오면 두번째 인자인 클로저 <code>function () { .... }</code> 부분이 동작을 하게 됩니다. <code>return view(&#39;welcome&#39;)</code>에서 인자 ‘welcome’은 <code>resources/views/welcome.blade.php</code> 파일을 말합니다. 보통 HTML 뷰나 문자열을 반환하는 것은 컨트롤러가 하는 일입니다. 컨트롤러의 일을 클로저가 대신하는 것을 볼 수 있습니다.</p>
+<h1 id="URL-파라미터"><a href="#URL-파라미터" class="headerlink" title="URL 파라미터"></a>URL 파라미터</h1><p>URL로 넘어 온 파라미터를 참조하려면 <code>{파라미터 이름}</code>와 같이 중괄호를 이용하면 됩니다.<br>만약 URL 파라미터를 받을 수도 있고 안받을 수도 있으면 <code>?</code> 를 붙이면 됩니다.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/&#123;foo&#125;'</span>, function($foo = <span class="string">'bar'</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> $foo;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>위 코드는 만약 URL 파라미터가 없으면 <code>$foo</code> 는 “bar” 문쟈열을 기본값으로 사용하겠다는 의미입니다.</p>
+<p>URL 파라미터의 모양에 따라 다른 로직을 실행하거나 필터링을 해야한다면 <strong>정규 표현식</strong> 을 이용할 수 있습니다.<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::pattern(<span class="string">'foo'</span>, <span class="string">'[0-9a-zA-Z]&#123;3&#125;'</span>)</span><br><span class="line">Route::get(<span class="string">'/&#123;foo&#125;'</span>, function($foo = <span class="string">'bar'</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> $foo;</span><br><span class="line">&#125;)-&gt;where(<span class="string">'foo'</span>, <span class="string">'[0-9a-zA-Z]&#123;3&#125;'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>위 코드는 <code>Route::pattern()</code> 과 정규 표현식을 이용하여 foo 파라미터를 숫자, 영어 대/소문자로 구성된 세 자리 글자로 한정하겠다는 예입니다. <code>where()</code>을 체인하여 사용 할 수도 있습니다.</p>
+<h1 id="Routing-Name"><a href="#Routing-Name" class="headerlink" title="Routing Name"></a>Routing Name</h1><p>라우팅에 이름을 부여할 수 있는데 컨트롤러 로직에서 다른 라우트로 리다이렉셔하거나, 뷰에서 다른 라우트로 이동하는 링크를 만들 때 유용합니다. 만약 URL 경로를 갑자기 바꾸어야 한다고 하면 코드를 뒤져서 전부 수정해야 하지만 이름을 지은 URL 경로이면 이러한 수고를 덜 수 있습니다.</p>
+<p>사용법은 <code>as =&gt; &#39;라우트 이름&#39;</code>을 정의하면 됩니다. 코드를 봅시다.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/'</span>, [</span><br><span class="line">  <span class="string">'as'</span> =&gt; <span class="string">'home'</span>, function () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hello"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">'/home'</span>, function() &#123;</span><br><span class="line">  <span class="keyword">return</span> redirect(route(<span class="string">'home'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>redirect()</code> 함수는 리다렉션 HTTP 응답을 반환합니다. <code>/</code>에 대한 요청을 받는 라우트를 home 이라고 이름을 정해주었기 때문에 <code>route(&#39;home&#39;)</code>은 <code>http://호스트:포트</code> 문자열을 반환하게 됩니다.</p>
+<h1 id="Routing-Override"><a href="#Routing-Override" class="headerlink" title="Routing Override"></a>Routing Override</h1><p>만약 같은 URL을 두 번 정의하게 되면 아래쪽에 정의한 라우트가 먼저 정의한 라우트를 오버라이드하기 때문에 라우트를 정의할 때 순서에 주의하는게 좋습니다.</p>
+<p>[참고 자료]</p>
+<p><a href="https://appkr.github.io/l5book-snippets/draft/1003-routing.html" target="_blank" rel="noopener"><br>https://appkr.github.io/l5book-snippets/draft/1003-routing.html<br></a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-02-05T16:36:21.000Z" itemprop="dateUpdated">2018-02-06 01:36:21</time>
+</span><br>
+
+
+        
+        URL：<a href="/2017/11/06/laravel-routing/" target="_blank" rel="external">https://seunguklee.github.io/2017/11/06/laravel-routing/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://seunguklee.github.io">
+            <img src="/img/avatar.jpg" alt="Seunguk Lee">
+            Seunguk Lee
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/11/06/laravel-routing/&title=《Laravel Routing》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/11/06/laravel-routing/&title=《Laravel Routing》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/11/06/laravel-routing/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Laravel Routing》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/11/06/laravel-routing/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/11/06/laravel-routing/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/06/laravel-view/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Laravel View&amp;Blade</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/05/laravel-project-structure/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Laravel Project Structure</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        UserView：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        PageView：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Seunguk Lee &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://seunguklee.github.io/2017/11/06/laravel-routing/&title=《Laravel Routing》 — Seunguk's Blog&pic=https://seunguklee.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://seunguklee.github.io/2017/11/06/laravel-routing/&title=《Laravel Routing》 — Seunguk's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://seunguklee.github.io/2017/11/06/laravel-routing/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Laravel Routing》 — Seunguk's Blog&url=https://seunguklee.github.io/2017/11/06/laravel-routing/&via=https://seunguklee.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://seunguklee.github.io/2017/11/06/laravel-routing/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aQW7jMBAEwPz/0w6wp10E8nYP5QAiiycjsCmWDpMhm19f8Xj9Ge33//5VMsPPX908MDAwHst4vR0t42opVzO/f2XJ2jAwMM5h5NMlD8tJyXOjfwAYGBgYF0uZff89GAMDA+PegpuX2va3GBgYGLNN7Pp3Zoyb9+IYGBgPZLTBwG9+/mC+gYGB8RDGqxwrB20rhfg/q8LAwNiakR+lJTHkvSFlfWkDAwNjU0YSJc7ixnyrmUeel3/BwMDYmtEutw0p81Yy374Wp4YYGBgbMVaO/ttW8nNFGQMDY1dG3ti1geXKrjovyv+cGmJgYGzKmNWrtnXLo4XZpQ0MDIy9GW2jlkxdbzuXm04MDIwTGEn71V6wSI7eZve+MDAwTmMkx1ttuNjGCXlUiYGBcTJjZcM5K5RtDFAksRgYGNsx2nAxbwdnx/15Ob7scDEwMDZl5CWvPbKfhZT1xhUDA+MYRnGtId7W5m3lyrUMDAyMvRl3RY+zGdZb0mGqgIGB8SjGrNXLH7zSFBYvBQMD4wDG7FLF7IJFO0/0FAwMjK0ZbdFsj97yDe1KLIqBgbE341WOvB+7aysbHedhYGBszchH3g4mh3R3RQsYGBjnMNombxZAznhFEcfAwDiA0S5u1sbVlT5vCjEwMDAW4sY8/sybTgwMDIx7GetXzaJ5MDAwDmCsFMc8AEhewewFYWBg7M1oN5Dry1q/kDHEYGBgPI/xDZZv+giDyq9EAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
